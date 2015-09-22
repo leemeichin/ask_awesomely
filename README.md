@@ -76,9 +76,9 @@ Check out [Typeform I/O](https://typeform.io) for detailed information about the
 Each field has unique properties. Here are the fields you can use, and the extra
 things you can do to customise them.
 
-Note that some options might not yet be available on [Typeform I/O](https://typeform.io).
+<small> Note that some options might not yet be available on [Typeform I/O](https://typeform.io).</small>
 
-Also note that some field types and customisations that are available on [Typeform.com](https://typeform.com) may not be available on [Typeform I/O](https://typeform.io).
+<small>Also note that some field types and customisations that are available on [Typeform.com](https://typeform.com) may not be available on [Typeform I/O](https://typeform.io).</small>
 
 ### Statement
 
@@ -130,6 +130,138 @@ field :multiple_choice do
 end
 ```
 
+### Picture choice
+
+Similar to `multiple_choice`, only you can add a picture to each answer too. This will handle the complications around image uploading for you.
+
+```ruby
+field :multiple_choice do
+  ask "Which of these is a spoon?"
+
+  # `image` can be a `String` or a `Pathname` or a `File`
+  choice "Knife", image: "path/to/your/spoon/image.jpg"
+  choice "Sppon", image: Rails.root.join("app/assets/images/image.jpg"
+
+  allow_multiple_selections
+  randomize
+```
+
+### Dropdown
+
+Similar again to `multiple_choice`, when you have too many options to show at once.
+
+```ruby
+field :dropdown do
+  ask "Which is the odd one out?"
+
+  choice "1"
+  choice "2"
+  choice "3"
+  choice "4"
+
+  # ... many lines later
+
+  choice "seventy"
+  choice "71"
+  choice "72"
+  choice "73"
+
+  in_alphabetical_order
+end
+```
+
+### Yes/No
+
+A question that demands the user to commit to their own certainty.
+
+```ruby
+field :yes_no do
+  ask "Will you marry me?"
+  required
+end
+```
+
+### Number
+
+A `short_text` style question that only accepts numerical input. It can be limited to a range.
+
+```ruby
+field :number do
+  ask "How many fingers am I holding up?"
+
+  min 0
+  max 4
+
+  # alternatively
+  between 0..4
+end
+```
+
+### Rating
+
+A question that prompts the user to quantify their opinion of something.
+
+```ruby
+field :rating do
+  ask "How much did you enjoy Jonny Wiseau's seminal hit, The Room?"
+
+  steps 10
+  shape :thumbs_up
+end
+
+```
+
+### Opinion Scale
+
+A refined form of `rating` more appropriate for "bad / neutral / good" style questions.
+
+```ruby
+field :opinion_scale do
+  ask "How would you rate our service?"
+
+  steps 11
+
+  left_side "Terrible"
+  middle "Average"
+  right_side "Amazeballs"
+
+  starts_from_one
+end
+```
+
+### Email
+
+A question type painstakingly created to request a valid email address.
+
+```ruby
+field :email do
+  ask "Can I have your email please?"
+  description "So you can be my best pen-pal buddy forever."
+end
+```
+
+### Website
+
+Ask the user to enter a valid URL.
+
+```ruby
+field :website do
+  ask "Show me a funny GIF"
+end
+```
+
+### Legal
+
+![YAAAAWWWWN](https://31.media.tumblr.com/3a602d9eb5e18d208b86bc18c4ea0735/tumblr_ns3e06dxFO1tyncywo1_250.gif)
+
+Like the `yes_no` field, but primarily intended for accepting terms and conditions. Stuff like that.
+
+```ruby
+field :legal
+  ask "Do you accept my lofty demands?"
+  required
+  end
+```
 
 ## Todo
 
