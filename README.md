@@ -35,7 +35,7 @@ end
 ```
 
 Your API Key is **super secret** so don't commit it in your code. Use `ENV` or
-something like `dotenv` so you can keep the credentials out of the repository. This stops bad people from stealing the key and hijacking your Typeform I/O account.
+something like [dotenv](https://github.com/bkeepers/dotenv) so you can keep the credentials out of the repository. This stops bad people from stealing the key and hijacking your Typeform I/O account.
 
 You will want to create a class that represents a specific form to be built:
 
