@@ -76,9 +76,10 @@ Check out [Typeform I/O](https://typeform.io) for detailed information about the
 Each field has unique properties. Here are the fields you can use, and the extra
 things you can do to customise them.
 
-<small> Note that some options might not yet be available on [Typeform I/O](https://typeform.io).</small>
+<small>Note that some options might not yet be available on [Typeform I/O](https://typeform.io).</small>
 
 <small>Also note that some field types and customisations that are available on [Typeform.com](https://typeform.com) may not be available on [Typeform I/O](https://typeform.io).</small>
+
 
 ### Statement
 
@@ -92,7 +93,7 @@ field :statement do
 end
 ```
 
-#### Short text
+### Short text
 
 A question where the answer is a short amount of free-form text.
 
