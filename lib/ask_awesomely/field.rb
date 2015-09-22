@@ -75,6 +75,10 @@ module AskAwesomely
     def required
       @state.required = true
     end
+
+    def tags(*tags)
+      @state.tags = tags
+    end
     
   end
 end

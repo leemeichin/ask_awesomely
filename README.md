@@ -260,8 +260,28 @@ Like the `yes_no` field, but primarily intended for accepting terms and conditio
 field :legal
   ask "Do you accept my lofty demands?"
   required
-  end
+end
 ```
+
+------
+
+#### Common Customisations
+
+Every field type allows you customize the following things:
+
+- the description: a smaller chunk of text to give extra detail to a question
+- tags: small strings to help you identify questions
+- answer required: prevent form submission until the question is answered
+
+```ruby
+field :legal do
+  # ...
+  description "Don't accept, I dare you."
+  required
+  tags "some-kind-of-tag-for-legal", "wtf"
+end
+```
+
 
 ## Todo
 
