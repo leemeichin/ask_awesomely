@@ -11,8 +11,8 @@ module AskAwesomely
       @state.add_other_choice = false
     end
 
-    def choice(label, picture_id:)
-      @state.choices << Choice.new(label: label, picture_id: picture_id)
+    def choice(label, picture:)
+      @state.choices << Choice.new(label: label, picture: picture)
     end
 
     def allow_multiple_selections

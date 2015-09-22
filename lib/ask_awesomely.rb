@@ -4,6 +4,7 @@ require "ask_awesomely/typeform"
 require "ask_awesomely/builder"
 require "ask_awesomely/field"
 require "ask_awesomely/choice"
+require "ask_awesomely/picture"
 
 module AskAwesomely
 

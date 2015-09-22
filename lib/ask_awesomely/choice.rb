@@ -1,9 +1,9 @@
 module AskAwesomely
   class Choice
 
-    def initialize(label:, picture_id: nil)
+    def initialize(label:, picture: nil)
       @label = label
-      @picture_id = picture_id
+      @picture = picture && Picture.new(picture)
     end
     
   end

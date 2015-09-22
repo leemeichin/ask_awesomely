@@ -135,15 +135,16 @@ end
 Similar to `multiple_choice`, only you can add a picture to each answer too. This will handle the complications around image uploading for you.
 
 ```ruby
-field :multiple_choice do
+field :picture_choice do
   ask "Which of these is a spoon?"
 
   # `image` can be a `String` or a `Pathname` or a `File`
-  choice "Knife", image: "path/to/your/spoon/image.jpg"
-  choice "Sppon", image: Rails.root.join("app/assets/images/image.jpg"
+  choice "Knife", picture: "path/to/your/spoon/image.jpg"
+  choice "Sppon", picture: Rails.root.join("app/assets/images/image.jpg"
 
   allow_multiple_selections
   randomize
+end
 ```
 
 ### Dropdown
