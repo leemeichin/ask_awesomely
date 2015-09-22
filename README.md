@@ -86,10 +86,9 @@ A block of text that isn't a question and requires no answer.
 
 ```ruby
 field :statement do
-  say "what you want to say" do
-    button_text "Okay, next question"
-    show_quotation_marks
-  end
+  say "what you want to say"
+  button_text "Okay, next question"
+  show_quotation_marks
 end
 ```
 
