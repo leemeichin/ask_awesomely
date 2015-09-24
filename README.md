@@ -160,7 +160,8 @@ end
 
 ### Picture choice
 
-Similar to `multiple_choice`, only you can add a picture to each answer too. This will handle the complications around image uploading for you.
+Similar to `multiple_choice`, only you can add a picture to each answer too. This will handle the complications around image uploading for you if you're dealing with local files and pass along your AWS credentials. Otherwise, it will work with whatever system you already have in place – just give it a URL instead of a file path.
+
 
 ```ruby
 field :picture_choice do
@@ -309,7 +310,7 @@ end
 
 ## Passing Context
 
-Building a form full of hardcoded data is all well and good, but it doesn't offer much benefit over using a web interface. What if you want to build personalise forms based on, say, an `ActiveRecord` model?
+Building a form full of hard-coded data is all well and good, but it doesn't offer much benefit over using a web interface. What if you want to build personalised forms based on, say, an `ActiveRecord` model?
 
 Lets create the basic form, with a title and a single question:
 
