@@ -1,4 +1,4 @@
 module AskAwesomely
-  class Field::Website < Field
+  class Field::Website < Field::Field
   end
 end

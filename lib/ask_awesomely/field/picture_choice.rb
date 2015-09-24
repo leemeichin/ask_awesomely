@@ -1,5 +1,5 @@
 module AskAwesomely
-  class Field::PictureChoice < Field
+  class Field::PictureChoice < Field::Field
 
     def initialize(*)
       super

@@ -1,5 +1,5 @@
 module AskAwesomely
-  class Field::Rating < Field
+  class Field::Rating < Field::Field
 
     POSSIBLE_STEPS = 3..10
     SHAPES = %i(

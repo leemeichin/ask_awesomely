@@ -1,5 +1,5 @@
 module AskAwesomely
-  class Field::Number < Field
+  class Field::Number < Field::Field
 
     def initialize(*)
       super

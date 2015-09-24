@@ -1,4 +1,4 @@
 module AskAwesomely
-  class Field::YesNo < Field
+  class Field::YesNo < Field::Field
   end
 end

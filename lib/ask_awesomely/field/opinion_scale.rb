@@ -1,5 +1,5 @@
 module AskAwesomely
-  class Field::OpinionScale < Field
+  class Field::OpinionScale < Field::Field
 
     POSSIBLE_STEPS = 5..11
     

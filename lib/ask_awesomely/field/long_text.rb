@@ -1,5 +1,5 @@
 module AskAwesomely
-  class Field::LongText < Field
+  class Field::LongText < Field::Field
 
     def initialize(*)
       super

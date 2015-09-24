@@ -1,5 +1,5 @@
 module AskAwesomely
-  class Field::Statement < Field
+  class Field::Statement < Field::Field
 
     def initialize(*)
       super

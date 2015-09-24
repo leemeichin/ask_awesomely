@@ -1,5 +1,5 @@
 module AskAwesomely
-  class Field::MultipleChoice < Field
+  class Field::MultipleChoice < Field::Field
 
     def initialize(*)
       super
