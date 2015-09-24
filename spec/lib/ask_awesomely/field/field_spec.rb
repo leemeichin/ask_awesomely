@@ -4,7 +4,7 @@ describe AskAwesomely::Field::Field, "A generic Field" do
 
   subject { AskAwesomely::Field::Field }
 
-  describe "the options available to all fields types" do
+  describe "the options available to all field types" do
 
     it "must be able to define the field type" do
       field = subject.new(:fake)

@@ -1,17 +1,26 @@
 module AskAwesomely
   class Picture
 
-    attr_reader :file_or_url
+    attr_reader :file_or_url, :public_url, :type, :typeform_id
 
-    def initialize(file_or_url)
+    DEFAULT_TYPE = :choice
+    
+    PICTURE_TYPES = [
+      :choice
+    ]
+
+    def initialize(file_or_url, type: DEFAULT_TYPE)
       @file_or_url = file_or_url
+      @type = type
     end
 
     def public_url
-      return file_or_url if url?
-
-      uploaded_file = upload_file!
-      uploaded_file.public_url
+      @public_url ||= if url?
+        file_or_url
+      else
+        file = upload_to_s3
+        file.public_url
+      end
     end
 
     private
@@ -24,21 +33,8 @@ module AskAwesomely
       Pathname.new(file_or_url.to_s).file?
     end
 
-    def file
-      @file ||= Pathname.new(file_or_url)
-    end
-
-    def name
-      file.basename
-    end
-    
-    def upload_file!
-      AskAwesomely.configuration.tap do |config|
-        config.configure_aws!
-        uploaded_file = config.s3_bucket.obj(name).upload_file(file.to_s)
-      end
-
-      uploaded_file
+    def upload_to_s3
+      S3.upload(Pathname.new(file_or_url))
     end
 
   end

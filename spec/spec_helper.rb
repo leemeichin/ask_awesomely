@@ -4,3 +4,7 @@ require 'ask_awesomely'
 require 'minitest/autorun'
 require 'minitest/spec'
 require 'minitest/pride'
+
+Aws.config.update({
+  stub_responses: true
+})

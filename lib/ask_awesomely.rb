@@ -4,6 +4,7 @@ require "ask_awesomely/dsl"
 require "ask_awesomely/field"
 require "ask_awesomely/choice"
 require "ask_awesomely/picture"
+require "ask_awesomely/s3"
 
 require "aws-sdk"
 
@@ -16,8 +17,8 @@ module AskAwesomely
     @configuration ||= Configuration.new
   end
 
-  def self.configure
-    yield @configuration
+  def self.configure(&block)
+    block.call(self.configuration)
   end
 
 end
