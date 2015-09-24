@@ -24,47 +24,74 @@ Or install it yourself as:
 gem install ask_awesomely
 ```
 
-## Usage & Example
+## Usage
+
+### Authentication
 
 Firstly, you will need to be able to authenticate:
 
 ```ruby
 AskAwesomely.configure do |config|
-  config.typeform_api_key = "YOUR_TYPEFORM_IO_API_KEY"
+  config.typeform_api_key = ENV["YOUR_TYPEFORM_IO_API_KEY"]
 end
 ```
 
-Your API Key is **super secret** so don't commit it in your code. Use `ENV` or
+Your API Keys are **super secret** so don't commit them in your code. Use `ENV` or
 something like [dotenv](https://github.com/bkeepers/dotenv) so you can keep the credentials out of the repository. This stops bad people from stealing the key and hijacking your Typeform I/O account.
+
+### If you're using images
+
+It's possible to create questions that have images (or pictures, as we call them) attached. In fact, one field type relies on this!
+
+Currently Typeform I/O is only able to accept a URL to an image, which means that any images you use have to be uploaded elsewhere first.
+
+**If you already handle image uploads in your app** (for example, with [Dragonfly](https://github.com/markevans/dragonfly)), you're okay.
+
+**If you don't**, you will need to give `AskAwesomely` your AWS credentials so it can do all of the heavy lifting for you.
+
+```ruby
+AskAwesomely.configure do |config|
+  config.aws_access_key_id = ENV["YOUR_AWS_ACCESS_KEY_ID"]
+  config.aws_access_key_secret = ENV["YOUR_AWS_ACCESS_KEY_SECRET"]
+end
+```
+
+As before, don't commit these keys to your repo unless you want [bad things to happen](http://vertis.io/2013/12/16/unauthorised-litecoin-mining.html). Check up on the [AWS Best Practices](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html) if you want to know more.
+
+### Basic example
 
 You will want to create a class that represents a specific form to be built:
 
 ```ruby
 class MyNewTypeform
 
-  include AskAwesomely
+  include AskAwesomely::DSL
 
+  title "My New Typeform"
 
-  typeform "My New Typeform" do
-    tags "awesome", "hehe"
+  tags "awesome", "hehe"
 
-    field :statement do
-      say "Hello, Rubyists!"
-    end
+  field :statement do
+    say "Hello, Rubyists!"
+  end
 
-    field :multiple_choice do
-      ask "What is your favourite language?"
-      choice "Ruby"
-      choice "Python"
-      choice "Javascript"
-      choice "COBOL"
+  field :multiple_choice do
+    ask "What is your favourite language?"
+    choice "Ruby"
+    choice "Python"
+    choice "Javascript"
+    choice "COBOL"
 
-      can_specify_other
-    end
-
+    can_specify_other
   end
 
 end
+```
+
+After that, it's simply a matter of calling `build!` on the class:
+
+```ruby
+typeform = MyNewTypeform.build!
 ```
 
 Check the rest of the (not currently finished) documentation to find out what else you can do.
@@ -139,9 +166,10 @@ Similar to `multiple_choice`, only you can add a picture to each answer too. Thi
 field :picture_choice do
   ask "Which of these is a spoon?"
 
-  # `image` can be a `String` or a `Pathname` or a `File`
-  choice "Knife", picture: "path/to/your/spoon/image.jpg"
-  choice "Sppon", picture: Rails.root.join("app/assets/images/image.jpg"
+  # `image` can be a `String`, a `URL`, a `Pathname`, or a `File`
+  choice "Knife", picture: "http://iseeyouveplayedknifeyspooneybefore.com/spoon.jpg"
+  choice "Spoon", picture: Rails.root.join("app/assets/images/knife.jpg")
+  choice "Spork", picture: "/var/www/images/spork.png"
 
   allow_multiple_selections
   randomize
@@ -156,18 +184,11 @@ Similar again to `multiple_choice`, when you have too many options to show at on
 field :dropdown do
   ask "Which is the odd one out?"
 
-  choice "1"
-  choice "2"
-  choice "3"
-  choice "4"
 
-  # ... many lines later
-
-  choice "seventy"
-  choice "71"
-  choice "72"
-  choice "73"
-
+  (1..100).each do |number|
+    choice (number != 70 ? number : "seventy") 
+  end
+    
   in_alphabetical_order
 end
 ```
@@ -282,6 +303,45 @@ field :legal do
   required
   tags "some-kind-of-tag-for-legal", "wtf"
 end
+```
+
+------
+
+## Passing Context
+
+Building a form full of hardcoded data is all well and good, but it doesn't offer much benefit over using a web interface. What if you want to build personalise forms based on, say, an `ActiveRecord` model?
+
+Lets create the basic form, with a title and a single question:
+
+```ruby
+class UserTypeform
+  include AskAwesomely::DSL
+
+  title -> (user) { "#{user.name}'s New Typeform" }
+
+  field :yes_no do
+    say -> (user) { "Is this your email address? #{user.email}" }
+    required
+  end
+end
+```
+
+Notice that we're now using a lambda for the title and question, instead of a hardcoded string. In this case, we're expecting an object that has a `name` and an `email`, so we can inject that data into the form.
+
+The next step is to build the form with such an object. For example, in Rails:
+
+```ruby
+rodrigo = User.create(name: "Rodrigo", email: "rodrigo@example.com")
+
+typeform = UserTypeform.build!(rodrigo)
+```
+
+Or in plain Ruby:
+
+```ruby
+gabriela = OpenStruct.new(name: "Gabriela", email: "gabriela@example.com")
+
+typform = UserTypeform.build!(gabriela)
 ```
 
 
