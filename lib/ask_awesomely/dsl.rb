@@ -26,8 +26,8 @@ module AskAwesomely
         _state.tags = tags
       end
 
-      def field(type:, body:, &block)
-        _state.fields << Field.of_type(type, &block)
+      def field(type, &block)
+        _state.fields << Field::Field.of_type(type, &block)
       end
     end
 

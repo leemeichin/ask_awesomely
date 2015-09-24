@@ -7,7 +7,7 @@ module AskAwesomely
       @state.has_marks = false
     end
 
-    def say
+    def say(text)
       @state.body = text
     end
     

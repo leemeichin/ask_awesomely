@@ -17,6 +17,8 @@ module AskAwesomely
       legal
     ).freeze
 
+    attr_reader :state
+
     # todo: make this easier to maintain
     def self.of_type(type, &block)
       field = case type
@@ -43,6 +45,7 @@ module AskAwesomely
     # Allow init with properties common to *all* fields
     def initialize(type, &block)
       @state = OpenStruct.new(
+        type: type,
         body: "",
         description: "",
         required: false,
