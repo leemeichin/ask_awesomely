@@ -6,30 +6,28 @@ module AskAwesomely
     end
 
     module ClassMethods
-      class << self
-        def _state
-          @state ||= OpenStruct.new(
-            title: "",
-            fields: [],
-            tags: []
-          )
-        end
+      def _state
+        @state ||= OpenStruct.new(
+          title: "",
+          fields: [],
+          tags: []
+        )
+      end
 
-        def build!(context = nil)
-          new(context).tap(&:build!)
-        end
-        
-        def title(title)
-          _state.title = title
-        end
+      def build!(context = nil)
+        new(context).tap(&:build!)
+      end
       
-        def tags(*tags)
-          _state.tags = tags
-        end
+      def title(title)
+        _state.title = title
+      end
+      
+      def tags(*tags)
+        _state.tags = tags
+      end
 
-        def field(type:, body:, &block)
-          _state.fields << Field.of_type(type, &block)
-        end
+      def field(type:, body:, &block)
+        _state.fields << Field.of_type(type, &block)
       end
     end
 
