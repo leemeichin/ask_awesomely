@@ -15,7 +15,7 @@ module AskAwesomely
       end
 
       def build!(context = nil)
-        new(context).tap(&:build!)
+        new(context).tap(&:to_json)
       end
       
       def title(title)
@@ -31,16 +31,15 @@ module AskAwesomely
       end
     end
 
-    attr_reader :context
+    attr_reader :context, :json
     
     def initialize(context = nil)
       @context = context
     end
 
-    private
-    
-    def build!
-      # send off to API
+    def to_json
+      @json = self.class._state.to_h.to_json
     end
+
   end
 end

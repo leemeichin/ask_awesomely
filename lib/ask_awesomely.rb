@@ -6,6 +6,7 @@ require "ask_awesomely/choice"
 require "ask_awesomely/picture"
 require "ask_awesomely/s3"
 
+require "json"
 require "aws-sdk"
 
 module AskAwesomely

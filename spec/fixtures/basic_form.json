@@ -1,0 +1,30 @@
+{
+  "title": "My Example Form",
+  "fields": [
+    {
+      "type": "statement",
+      "body": "This is a test!",
+      "description": "",
+      "required": false,
+      "tags": [
+
+      ],
+      "button_text": "Continue",
+      "has_marks": false
+    },
+    {
+      "type": "short_text",
+      "body": "What do you think?",
+      "description": "",
+      "required": true,
+      "tags": [
+        "opinion"
+      ],
+      "max_characters": null
+    }
+  ],
+  "tags": [
+    "example",
+    "first-attempt"
+  ]
+}

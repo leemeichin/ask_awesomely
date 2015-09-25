@@ -8,3 +8,7 @@ require 'minitest/pride'
 Aws.config.update({
   stub_responses: true
 })
+
+def fixture(name)
+  Pathname.new(__dir__).join("fixtures", "#{name}.json").read.chomp
+end
