@@ -8,6 +8,7 @@ Build Typeforms awesomely. In Ruby.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
+- [Before you start](#before-you-start)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Authentication](#authentication)
@@ -37,9 +38,11 @@ Build Typeforms awesomely. In Ruby.
     - [Drawer](#drawer)
     - [Fullscreen](#fullscreen)
 - [Development](#development)
-- [Contributing](#contributing)
+- [Feedback and Contributions](#feedback-and-contributions)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Before you start
 
 
 ## Installation
@@ -61,7 +64,6 @@ Or install it yourself as:
 ```shell
 gem install ask_awesomely
 ```
-
 
 ## Usage
 
@@ -451,7 +453,15 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 
-## Contributing
+## Feedback and Contributions
+
+Practically every aspect of this gem (save for image uploading) is an extension of the Typeform I/O API. If the API has it, `AskAwesomely` eventually will. Here's what the Typeform I/O peeps say:
+
+> We are continuously working on and improving Typeform I/O, and we're heavily focused on making the API as simple as possible, but also feature-rich so you can make good use of it. We would be forever grateful if you can leave us feedback. We welcome all questions, and we'd love to talk to you about how you're using Typeform I/O, what you hope for from us in the future, or anything else!
+
+> We recommend you join our [#Slack group](http://docs.typeform.io/v0.4/page/slack-invite) to chat with us, and with other people using Typeform I/O. You can also ask us questions in our [Q&A section](http://docs.typeform.io/v0.4/discuss), or you can simply send us an email to [support@typeform.io](mailto:support@typeform.io).
+
+That doesn't preclude contributing to the gem itself by fixing bugs or offering improvements. If you'd like to do that, follow these simple steps:
 
 1. Fork it (https://github.com/leemachin/ask_awesomely/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
