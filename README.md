@@ -2,6 +2,45 @@
 
 Build Typeforms awesomely. In Ruby.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Authentication](#authentication)
+  - [If you're using images](#if-youre-using-images)
+  - [Basic example](#basic-example)
+- [Available fields and options](#available-fields-and-options)
+  - [Statement](#statement)
+  - [Short text](#short-text)
+  - [Long text](#long-text)
+  - [Multiple choice](#multiple-choice)
+  - [Picture choice](#picture-choice)
+  - [Dropdown](#dropdown)
+  - [Yes/No](#yesno)
+  - [Number](#number)
+  - [Rating](#rating)
+  - [Opinion Scale](#opinion-scale)
+  - [Email](#email)
+  - [Website](#website)
+  - [Legal](#legal)
+    - [Common Customisations](#common-customisations)
+- [Passing Context](#passing-context)
+- [Rendering the Typeform](#rendering-the-typeform)
+  - [Getting the URL](#getting-the-url)
+  - [Embedding](#embedding)
+    - [Modal](#modal)
+    - [Widget](#widget)
+    - [Drawer](#drawer)
+    - [Fullscreen](#fullscreen)
+- [Todo](#todo)
+- [Development](#development)
+- [Contributing](#contributing)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
 ## Installation
 
 I wouldn't recommend you do this yet, because it doesn't actually work. Nevertheless, add this line to your application's Gemfile:
@@ -22,7 +61,6 @@ Or install it yourself as:
 gem install ask_awesomely
 ```
 
-------
 
 ## Usage
 
@@ -98,7 +136,6 @@ Check the rest of the (not currently finished) documentation to find out what el
 
 Check out [Typeform I/O](https://typeform.io) for detailed information about the API, and how to get your API key.
 
-------
 
 ## Available fields and options
 
@@ -189,9 +226,9 @@ field :dropdown do
 
 
   (1..100).each do |number|
-    choice (number != 70 ? number : "seventy") 
+    choice (number != 70 ? number : "seventy")
   end
-    
+
   in_alphabetical_order
 end
 ```
@@ -289,7 +326,6 @@ field :legal
 end
 ```
 
-------
 
 #### Common Customisations
 
@@ -308,7 +344,6 @@ field :legal do
 end
 ```
 
-------
 
 ## Passing Context
 
@@ -349,7 +384,6 @@ gabriela = OpenStruct.new(name: "Gabriela", email: "gabriela@example.com")
 typeform = UserTypeform.build(gabriela)
 ```
 
-------
 
 ## Rendering the Typeform
 
@@ -357,7 +391,7 @@ Calling `build` will send your Typeform structure to the API right away, and if 
 
 ### Getting the URL
 
-Every Typeform you successfully generate through Typeform I/O will come back with a new public URL. This points to the rendered version of the Typeform and it's what you can send out to your users, or participants, or whomever. 
+Every Typeform you successfully generate through Typeform I/O will come back with a new public URL. This points to the rendered version of the Typeform and it's what you can send out to your users, or participants, or whomever.
 
 For example, you might email a bunch of personalised Typeforms in a Rails app like this:
 
@@ -411,7 +445,6 @@ Note that this outputs a **complete** HTML document, CSS and all. If you're work
 typeform.embed_as(:fullscreen)
 ```
 
-------
 
 ## Todo
 
@@ -421,7 +454,6 @@ typeform.embed_as(:fullscreen)
 - allow webhook URL to be configured
 - allow design to be configured
 
-------
 
 
 ## Development
@@ -430,7 +462,6 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-------
 
 ## Contributing
 
