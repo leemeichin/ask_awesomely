@@ -44,16 +44,16 @@ Build Typeforms awesomely. In Ruby.
 
 ## Installation
 
-I wouldn't recommend you do this yet, because it doesn't actually work. Nevertheless, add this line to your application's Gemfile:
+Prepare your best [Jamie Oliver](https://en.wikipedia.org/wiki/Jamie_Oliver) impression and bang this in yer Gemfile:
 
 ```ruby
 gem 'ask_awesomely'
 ```
 
-And then execute:
+Turn your CPU up to 80ºC and let it simmer for a while with this:
 
 ```shell
-bundle
+bundle install
 ```
 
 Or install it yourself as:
@@ -132,8 +132,6 @@ After that, it's simply a matter of calling `build` on the class:
 ```ruby
 typeform = MyNewTypeform.build
 ```
-
-Check the rest of the (not currently finished) documentation to find out what else you can do.
 
 Check out [Typeform I/O](https://typeform.io) for detailed information about the API, and how to get your API key.
 
