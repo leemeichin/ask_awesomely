@@ -36,7 +36,6 @@ Build Typeforms awesomely. In Ruby.
     - [Widget](#widget)
     - [Drawer](#drawer)
     - [Fullscreen](#fullscreen)
-- [Todo](#todo)
 - [Development](#development)
 - [Contributing](#contributing)
 
@@ -446,17 +445,6 @@ Note that this outputs a **complete** HTML document, CSS and all. If you're work
 ```ruby
 typeform.embed_as(:fullscreen)
 ```
-
-
-## Todo
-
-- implement and test dynamic fields
-- test the API interaction behaves well
-- deal with errors from the API
-- allow webhook URL to be configured
-- allow design to be configured
-
-
 
 ## Development
 
