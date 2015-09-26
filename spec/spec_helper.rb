@@ -5,8 +5,6 @@ require "minitest/autorun"
 require "minitest/spec"
 require "minitest/pride"
 require "vcr"
-require "pry"
-require "pry-byebug"
 
 Dir.glob("#{__dir__}/support/**/*.rb", &method(:require))
 
