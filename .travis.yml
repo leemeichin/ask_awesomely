@@ -1,5 +1,8 @@
 language: ruby
 rvm:
-  - 2.2.2
-  - 2.2.3
-  - rbx-2
+- 2.2.2
+- 2.2.3
+- rbx-2
+env:
+  global:
+    secure: IiOYP2G1Ufie+zMYz/l/+wnLwej6REZCKgFN+hNUU5//0UugDMQHbVHSLPSEuAu3g8T/9CcPgYLVYcTrsZC9Hn/TtB3Sc8w3OuSELD1prsanMlySjTHDTLmZynmDT/IFWxz2mdKIaFwHKvbipJw+VUxyTiFD/Iu/Ns/goM4+HBemxh2cuomAqPIo2qTKWxl9hpcT3YFf9ylbLKFe6LfnRCygeTK+nY3ooZMP+vC5tnYmLX74FINZKnliG8npNXG0fc7X/W5zzy0vKHGKobirxTqgMERZH1voGCShoVKtH9YISgr9g+JJ8AvVHVr58mjc3U26tChl6MKxMYIc+iscX/aoUEPQ6yPgST+Wj7+ZcFduFg/C3xgs0BoNRsJDLDD37a9uyEJet7iusMARs+X+buimRdEUvddkEdW4SNj76Jqjwsgp09Isl5LOLwUB+xsCE9s6CK3pOOsPHVnultFILsSk86Cre2+E2QEukt4r1cghn+Lf9+sdRwOHnBUT6G3p5S1t313JWNfZGx3auFEXacK5jmDjvqWH6QPUfVZJ25XGlHkVhsv4q09/dJcyr//tPsjD6Yrx2hc+pkIu24o8RPQlmpgTTpb/A3a2xaJOaP+PNJB0yT3LAxabEmvsCZCmmhScScagxTCdlBpP43q/Bjr2RA5Mbd+LVRBh7t/90RI=
