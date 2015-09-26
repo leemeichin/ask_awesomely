@@ -5,14 +5,20 @@ require "ask_awesomely/field"
 require "ask_awesomely/choice"
 require "ask_awesomely/picture"
 require "ask_awesomely/s3"
+require "ask_awesomely/api_client"
+require "ask_awesomely/typeform"
+require "ask_awesomely/embeddable"
 
+require "erb"
 require "json"
 require "aws-sdk"
+require "typhoeus"
 
 module AskAwesomely
 
   ConfigurationError = Class.new(ArgumentError)
-  FieldTypeError = Class.new(TypeError)
+  FieldTypeError = Class.new(ArgumentError)
+  EmbedTypeError = Class.new(ArgumentError)
 
   def self.configuration
     @configuration ||= Configuration.new

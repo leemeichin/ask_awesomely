@@ -2,10 +2,6 @@ require "spec_helper"
 
 describe AskAwesomely::DSL, "The Typeform builder DSL" do
 
-  EmptyForm = Class.new do
-    include AskAwesomely::DSL
-  end
-
   BasicForm = Class.new do
     include AskAwesomely::DSL
 
@@ -24,38 +20,27 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
     end
   end
 
-
-  describe "the top-level language for creating a Typeform" do
-
-    subject { EmptyForm }
-
-    it "can set the title of the form" do
-      subject.title "Test Form"
-      subject._state.title.must_equal "Test Form"
+  before do
+    AskAwesomely.configure do |config|
+      config.typeform_api_key = "abcdefg"
     end
 
-    it "can add tags" do
-      subject.tags "A", "B", "C"
-      subject._state.tags.must_equal(["A", "B", "C"])
-    end
+    # we don't care about requests in these tests
+    Typhoeus.stub(AskAwesomely::ApiClient::BASE_URL).and_return(nil)
+  end
 
-    it "can add fields" do
-      subject.field :statement do
-        say "Something"
-      end
-
-      subject._state.fields.first.must_be_kind_of(AskAwesomely::Field::Statement)
-    end
+  after do
+    Typhoeus::Expectation.clear
   end
 
   describe "building a Typeform with static data" do
-
     subject { BasicForm }
     let(:json) { fixture("basic_form") }
 
-    it "has a valid JSON representation" do
-      form = subject.build!
-      generated_json = JSON.pretty_generate(JSON.parse(form.json))
+    it "has a valid JSON representation when built" do
+      form = subject.build
+      
+      generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
       generated_json.must_equal(json)
     end
   end

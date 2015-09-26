@@ -4,6 +4,8 @@ require 'ask_awesomely'
 require 'minitest/autorun'
 require 'minitest/spec'
 require 'minitest/pride'
+require "pry"
+require "pry-byebug"
 
 Aws.config.update({
   stub_responses: true

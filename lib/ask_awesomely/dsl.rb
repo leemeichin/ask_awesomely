@@ -1,11 +1,15 @@
 module AskAwesomely
   module DSL
-    
+
     def self.included(recv)
       recv.extend(ClassMethods)
     end
 
     module ClassMethods
+      def _api_client
+        @api_client = ApiClient.new
+      end
+
       def _state
         @state ||= OpenStruct.new(
           title: "",
@@ -14,14 +18,16 @@ module AskAwesomely
         )
       end
 
-      def build!(context = nil)
-        new(context).tap(&:to_json)
+      def build(context = nil)
+        structure = new(context)
+        typeform = Typeform.new(structure)
+        _api_client.submit_typeform(typeform)
       end
-      
+
       def title(title)
         _state.title = title
       end
-      
+
       def tags(*tags)
         _state.tags = tags
       end
@@ -32,13 +38,13 @@ module AskAwesomely
     end
 
     attr_reader :context, :json
-    
-    def initialize(context = nil)
+
+    private def initialize(context = nil)
       @context = context
     end
 
     def to_json
-      @json = self.class._state.to_h.to_json
+      self.class._state.to_h.to_json
     end
 
   end
