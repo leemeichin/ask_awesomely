@@ -44,19 +44,13 @@ module AskAwesomely
     
     # Allow init with properties common to *all* fields
     def initialize(type, &block)
-      @state = OpenStruct.new(
-        type: type,
-        body: "",
-        description: "",
-        required: false,
-        tags: []
-      )
+      @state = OpenStruct.new(type: type)
 
       self.instance_eval(&block) if block_given?
     end
 
-    def ask(body)
-      @state.body = body
+    def ask(question)
+      @state.question = question
     end
     
     def required

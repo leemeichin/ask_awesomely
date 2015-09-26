@@ -5,13 +5,11 @@ module AskAwesomely
     
     def initialize(*)
       super
-      @state.steps = 11
       @state.label = {
         left: nil,
         center: nil,
         right: nil
       }
-      @state.start_at_one = false
     end
 
     def steps(steps)

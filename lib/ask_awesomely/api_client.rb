@@ -4,24 +4,33 @@ module AskAwesomely
     USER_AGENT = "leemachin/ask_awesomely; (v#{AskAwesomely::VERSION})"
     BASE_URL = "https://api.typeform.io/latest"
     ENDPOINTS = {
-      info: "/",
+      root: "/",
       create_typeform: "/forms"
     }
     
     def initialize
       Typhoeus::Config.user_agent = USER_AGENT
     end
+
+    def get_info
+      response = request.get(
+        url_for(:root),
+        headers: headers
+      )
+
+      JSON.parse(response.body)
+    end
     
     def submit_typeform(typeform)
       response = request.post(
         url_for(:create_typeform),
         headers: headers,
-        method: :post,
         body: typeform.to_json
       )
 
       typeform.tap do |tf|
-        tf.update_with_api_response(response.body)
+        body = JSON.parse(response.body)
+        tf.update_with_api_response(body)
       end
     end
 

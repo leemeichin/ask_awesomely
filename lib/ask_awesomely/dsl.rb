@@ -13,8 +13,7 @@ module AskAwesomely
       def _state
         @state ||= OpenStruct.new(
           title: "",
-          fields: [],
-          tags: []
+          fields: []
         )
       end
 

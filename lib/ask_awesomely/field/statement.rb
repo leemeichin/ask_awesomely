@@ -3,12 +3,10 @@ module AskAwesomely
 
     def initialize(*)
       super
-      @state.button_text = "Continue"
-      @state.has_marks = false
     end
 
-    def say(text)
-      @state.body = text
+    def say(statement)
+      @state.question = statement
     end
     
     def show_quotation_marks

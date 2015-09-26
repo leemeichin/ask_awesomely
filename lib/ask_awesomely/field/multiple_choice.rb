@@ -4,12 +4,8 @@ module AskAwesomely
     def initialize(*)
       super
       @state.choices = []
-      @state.allow_multiple_selections = false
-      @state.randomize = false
-      @state.vertical_alignment = false
-      @state.add_other_choice = false
     end
-
+    
     def choice(label)
       @state.choices << Choice.new(label: label)
     end
@@ -24,6 +20,10 @@ module AskAwesomely
 
     def can_specify_other
       @state.add_other_choice = true
+    end
+
+    def align_vertically
+      @state.vertical_alignment = true
     end
     
   end

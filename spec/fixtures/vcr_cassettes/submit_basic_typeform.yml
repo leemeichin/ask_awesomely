@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.typeform.io/latest/forms
+    body:
+      encoding: UTF-8
+      string: '{"title":"My Example Form","fields":[{"type":"statement","question":"This
+        is a test!"},{"type":"short_text","question":"What do you think?","required":true,"tags":["opinion"]}],"tags":["example","first-attempt"]}'
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.1.0)
+      X-API-TOKEN:
+      - ***REMOVED***
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-API-TOKEN,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 26 Sep 2015 19:17:53 GMT
+      Server:
+      - openresty/1.7.4.1
+      Content-Length:
+      - '407'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        {"id":"qjsYW3HnHh","title":"My Example Form","fields":[{"id":267347,"type":"statement","question":"This is a test!"},{"id":267348,"type":"short_text","question":"What do you think?","required":true,"tags":["opinion"]}],"_links":[{"rel":"self","href":"https://api.typeform.io/v0.4/forms/qjsYW3HnHh"},{"rel":"form_render","href":"https://forms.typeform.io/to/qjsYW3HnHh"}],"tags":["example","first-attempt"]}
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/latest/forms
+  recorded_at: Sat, 26 Sep 2015 19:17:53 GMT
+recorded_with: VCR 2.9.3

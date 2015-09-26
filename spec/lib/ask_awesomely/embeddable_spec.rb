@@ -2,27 +2,9 @@ require "spec_helper"
 
 describe AskAwesomely::Embeddable, "embed strings for forms" do
 
-  ExampleForm = Class.new do
-    include AskAwesomely::DSL
-
-    title "My Example Form"
-
-    tags "example", "first-attempt"
-
-    field :statement do
-      say "This is a test!"
-    end
-
-    field :short_text do
-      ask "What do you think?"
-      required
-      tags "opinion"
-    end
-  end
-
   subject { AskAwesomely::Embeddable }
 
-  let(:typeform) { AskAwesomely::Typeform.new(ExampleForm.new) }
+  let(:typeform) { AskAwesomely::Typeform.new(BasicTypeform.new) }
 
   before do
     typeform.instance_variable_set(:@public_url, "http://typeform.io/to/aBcDeF")

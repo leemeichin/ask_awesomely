@@ -3,7 +3,6 @@ module AskAwesomely
 
     def initialize(*)
       super
-      @state.alphabetical_order = false
       @state.choices = []
     end
 

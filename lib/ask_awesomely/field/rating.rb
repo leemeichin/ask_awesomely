@@ -9,8 +9,6 @@ module AskAwesomely
     
     def initialize(*)
       super
-      @state.steps = 5
-      @state.shape = :stars
     end
 
     def steps(steps)

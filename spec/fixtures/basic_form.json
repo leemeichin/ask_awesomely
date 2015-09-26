@@ -3,24 +3,15 @@
   "fields": [
     {
       "type": "statement",
-      "body": "This is a test!",
-      "description": "",
-      "required": false,
-      "tags": [
-
-      ],
-      "button_text": "Continue",
-      "has_marks": false
+      "question": "This is a test!"
     },
     {
       "type": "short_text",
-      "body": "What do you think?",
-      "description": "",
+      "question": "What do you think?",
       "required": true,
       "tags": [
         "opinion"
-      ],
-      "max_characters": null
+      ]
     }
   ],
   "tags": [

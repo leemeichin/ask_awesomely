@@ -16,12 +16,12 @@ describe AskAwesomely::Field::Field, "A generic Field" do
           ask "A question"
         end
 
-        field.state.body.must_equal("A question")
+        field.state.question.must_equal("A question")
     end
 
     it "is optional by default" do
       field = subject.new(:fake)
-      field.state.required.must_equal(false)
+      field.state.required.must_equal(nil)
     end
 
     it "must be able to be marked as required" do

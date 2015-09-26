@@ -4,11 +4,6 @@ module AskAwesomely
     def initialize(*)
       super
       @state.choices = []
-      @state.labels = true
-      @state.allow_multiple_selections = false
-      @state.randomize = false
-      @state.vertical_alignment = false
-      @state.add_other_choice = false
     end
 
     def choice(label, picture:)
@@ -29,6 +24,10 @@ module AskAwesomely
 
     def hide_labels
       @state.labels = false
+    end
+
+    def align_vertically
+      @state.vertical_alignment = true
     end
     
   end

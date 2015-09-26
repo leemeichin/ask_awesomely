@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.typeform.io/latest/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.1.0)
+      X-API-TOKEN:
+      - ***REMOVED***
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-API-TOKEN,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 26 Sep 2015 18:46:17 GMT
+      Server:
+      - openresty/1.7.4.1
+      Content-Length:
+      - '231'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        {"description":"Build API for creating forms awesomely","documentation":"https://docs.typeform.io/","name":"Typeform I/O Build API","support":"support@typeform.io","time":"2015-09-26 18:46:17.706338374 +0000 UTC","version":"v0.4"}
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/latest/
+  recorded_at: Sat, 26 Sep 2015 18:46:17 GMT
+recorded_with: VCR 2.9.3

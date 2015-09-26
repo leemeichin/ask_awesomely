@@ -3,8 +3,6 @@ module AskAwesomely
 
     def initialize(*)
       super
-      @state.min = nil
-      @state.max = nil
     end
 
     def min(min)
