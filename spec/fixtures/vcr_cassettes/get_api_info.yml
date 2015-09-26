@@ -8,9 +8,9 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - leemachin/ask_awesomely; (v0.1.0)
+      - leemachin/ask_awesomely; (v0.1.1)
       X-API-TOKEN:
-      - ***REMOVED***
+      - "<API-KEY>"
       Accept:
       - application/json
       Content-Type:
@@ -31,7 +31,7 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Sat, 26 Sep 2015 18:46:17 GMT
+      - Sat, 26 Sep 2015 20:04:00 GMT
       Server:
       - openresty/1.7.4.1
       Content-Length:
@@ -41,9 +41,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {"description":"Build API for creating forms awesomely","documentation":"https://docs.typeform.io/","name":"Typeform I/O Build API","support":"support@typeform.io","time":"2015-09-26 18:46:17.706338374 +0000 UTC","version":"v0.4"}
+        {"description":"Build API for creating forms awesomely","documentation":"https://docs.typeform.io/","name":"Typeform I/O Build API","support":"support@typeform.io","time":"2015-09-26 20:04:00.550727979 +0000 UTC","version":"v0.4"}
     http_version: '1.1'
     adapter_metadata:
       effective_url: https://api.typeform.io/latest/
-  recorded_at: Sat, 26 Sep 2015 18:46:17 GMT
+  recorded_at: Sat, 26 Sep 2015 20:04:00 GMT
 recorded_with: VCR 2.9.3

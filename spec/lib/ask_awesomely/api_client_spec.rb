@@ -29,10 +29,10 @@ describe AskAwesomely::ApiClient, "interface to Typeform I/O" do
       VCR.use_cassette("submit_basic_typeform") do
         typeform = BasicTypeform.build
 
-        typeform.id.must_equal("qjsYW3HnHh")
+        typeform.id.must_equal("uc5ag9dzpW")
         typeform.title.must_equal("My Example Form")
-        typeform.public_url.must_equal("https://forms.typeform.io/to/qjsYW3HnHh")
-        typeform.private_url.must_equal("https://api.typeform.io/v0.4/forms/qjsYW3HnHh")
+        typeform.public_url.must_equal("https://forms.typeform.io/to/uc5ag9dzpW")
+        typeform.private_url.must_equal("https://api.typeform.io/v0.4/forms/uc5ag9dzpW")
       end
     end
   end

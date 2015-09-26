@@ -17,6 +17,9 @@ Aws.config.update({
 VCR.configure do |config|
   config.cassette_library_dir = "#{__dir__}/fixtures/vcr_cassettes"
   config.hook_into :typhoeus
+  config.filter_sensitive_data('<API-KEY>') do |http|
+    AskAwesomely.configuration.typeform_api_key
+  end
 end
 
 AskAwesomely.configure do |config|
