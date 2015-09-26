@@ -2,8 +2,6 @@
 
 Build Typeforms awesomely. In Ruby.
 
-**not yet functional**
-
 ## Installation
 
 I wouldn't recommend you do this yet, because it doesn't actually work. Nevertheless, add this line to your application's Gemfile:
@@ -23,6 +21,8 @@ Or install it yourself as:
 ```shell
 gem install ask_awesomely
 ```
+
+------
 
 ## Usage
 
@@ -88,15 +88,17 @@ class MyNewTypeform
 end
 ```
 
-After that, it's simply a matter of calling `build!` on the class:
+After that, it's simply a matter of calling `build` on the class:
 
 ```ruby
-typeform = MyNewTypeform.build!
+typeform = MyNewTypeform.build
 ```
 
 Check the rest of the (not currently finished) documentation to find out what else you can do.
 
 Check out [Typeform I/O](https://typeform.io) for detailed information about the API, and how to get your API key.
+
+------
 
 ## Available fields and options
 
@@ -310,6 +312,8 @@ end
 
 ## Passing Context
 
+**note: not yet supported**
+
 Building a form full of hard-coded data is all well and good, but it doesn't offer much benefit over using a web interface. What if you want to build personalised forms based on, say, an `ActiveRecord` model?
 
 Lets create the basic form, with a title and a single question:
@@ -334,7 +338,7 @@ The next step is to build the form with such an object. For example, in Rails:
 ```ruby
 rodrigo = User.create(name: "Rodrigo", email: "rodrigo@example.com")
 
-typeform = UserTypeform.build!(rodrigo)
+typeform = UserTypeform.build(rodrigo)
 ```
 
 Or in plain Ruby:
@@ -342,20 +346,91 @@ Or in plain Ruby:
 ```ruby
 gabriela = OpenStruct.new(name: "Gabriela", email: "gabriela@example.com")
 
-typform = UserTypeform.build!(gabriela)
+typeform = UserTypeform.build(gabriela)
 ```
 
+------
+
+## Rendering the Typeform
+
+Calling `build` will send your Typeform structure to the API right away, and if everything is hunky-dory you'll get a nice new `Typeform` object to play with.
+
+### Getting the URL
+
+Every Typeform you successfully generate through Typeform I/O will come back with a new public URL. This points to the rendered version of the Typeform and it's what you can send out to your users, or participants, or whomever. 
+
+For example, you might email a bunch of personalised Typeforms in a Rails app like this:
+
+```ruby
+
+User.find_each do |user|
+  typeform = UserTypeform.build(user)
+  TypeformMailer.send_to_user(user, typeform.public_url)
+end
+```
+
+### Embedding
+
+You can also embed a form straight away if you prefer. `AskAwesomely` generates the correct embed code for you, with the correct URL and Typeform title. The style can be customised with CSS but some aspects of the embed itself are not currently customisable (e.g. changing button text and widget size).
+
+To see what each embedding option looks like, check out the `Embedding Modes`[http://docs.typeform.io/docs/embedding-introduction) documentation at Typeform I/O. It has pictures and everything.
+
+Assuming you have built a Typeform as in the other examples, rendering the embed code is simple:
+
+#### Modal
+
+Pops up over the page content and fills most of the screen.
+
+```ruby
+typeform.embed_as(:modal)
+```
+
+#### Widget
+
+Allows you more control over where the form is embedded and how it appears. Just a box on the page.
+
+```ruby
+typeform.embed_as(:widget)
+```
+
+#### Drawer
+
+Makes the form slide in from the side of the page, hamburger menu style, and fills at least half of the screen.
+
+```ruby
+typeform.embed_as(:drawer)
+```
+
+#### Fullscreen
+
+Becomes the entire page.
+
+Note that this outputs a **complete** HTML document, CSS and all. If you're working with your own views and layouts this will not embed properly unless inserted into an empty layout. Can work well with Sinatra or other small frameworks if you just want to build a form and display it.
+
+```ruby
+typeform.embed_as(:fullscreen)
+```
+
+------
 
 ## Todo
 
-- tests, once the DSL looks like it makes sense
-- actually build the form and submit it (you know, the reason for using this)
+- implement and test dynamic fields
+- test the API interaction behaves well
+- deal with errors from the API
+- allow webhook URL to be configured
+- allow design to be configured
+
+------
+
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+------
 
 ## Contributing
 
