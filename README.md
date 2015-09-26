@@ -409,7 +409,7 @@ end
 
 You can also embed a form straight away if you prefer. `AskAwesomely` generates the correct embed code for you, with the correct URL and Typeform title. The style can be customised with CSS but some aspects of the embed itself are not currently customisable (e.g. changing button text and widget size).
 
-To see what each embedding option looks like, check out the `Embedding Modes`[http://docs.typeform.io/docs/embedding-introduction) documentation at Typeform I/O. It has pictures and everything.
+To see what each embedding option looks like, check out the [`Embedding Modes`](http://docs.typeform.io/docs/embedding-introduction) documentation at Typeform I/O. It has pictures and everything.
 
 Assuming you have built a Typeform as in the other examples, rendering the embed code is simple:
 
