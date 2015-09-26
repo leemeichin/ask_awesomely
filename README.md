@@ -28,7 +28,7 @@ Build Typeforms awesomely. In Ruby.
   - [Email](#email)
   - [Website](#website)
   - [Legal](#legal)
-    - [Common Customisations](#common-customisations)
+- [Common Customisations](#common-customisations)
 - [Passing Context](#passing-context)
 - [Rendering the Typeform](#rendering-the-typeform)
   - [Getting the URL](#getting-the-url)
@@ -328,7 +328,7 @@ end
 ```
 
 
-#### Common Customisations
+## Common Customisations
 
 Every field type allows you customize the following things:
 
