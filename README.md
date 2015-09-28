@@ -65,6 +65,12 @@ Or install it yourself as:
 gem install ask_awesomely
 ```
 
+Then include it in your code like this:
+
+```ruby
+require "ask_awesomely"
+```
+
 ## Usage
 
 ### Authentication
