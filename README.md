@@ -354,8 +354,6 @@ end
 
 ## Passing Context
 
-**note: not yet supported**
-
 Building a form full of hard-coded data is all well and good, but it doesn't offer much benefit over using a web interface. What if you want to build personalised forms based on, say, an `ActiveRecord` model?
 
 Lets create the basic form, with a title and a single question:
