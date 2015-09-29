@@ -11,6 +11,7 @@ require "ask_awesomely/embeddable"
 
 require "erb"
 require "json"
+require "uri"
 require "aws-sdk"
 require "typhoeus"
 
@@ -19,6 +20,7 @@ module AskAwesomely
   ConfigurationError = Class.new(ArgumentError)
   FieldTypeError = Class.new(ArgumentError)
   EmbedTypeError = Class.new(ArgumentError)
+  InvalidUrlError = Class.new(TypeError)
 
   def self.configuration
     @configuration ||= Configuration.new

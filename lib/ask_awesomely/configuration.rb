@@ -8,7 +8,8 @@ module AskAwesomely
                   :aws_access_key_id,
                   :aws_access_key_secret,
                   :aws_region,
-                  :aws_bucket
+                  :aws_bucket,
+                  :logger
     
     def typeform_api_key
       unless @typeform_api_key
@@ -24,6 +25,12 @@ module AskAwesomely
 
     def aws_bucket
       @aws_bucket || DEFAULT_AWS_BUCKET
+    end
+
+    def logger
+      @logger ||= Logger.new(STDOUT).tap do |logger|
+        logger.level = Logger::WARN
+      end
     end
 
   end

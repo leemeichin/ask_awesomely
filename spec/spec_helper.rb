@@ -5,6 +5,7 @@ require "minitest/autorun"
 require "minitest/spec"
 require "minitest/pride"
 require "vcr"
+require "stringio"
 
 Dir.glob("#{__dir__}/support/**/*.rb", &method(:require))
 
@@ -22,6 +23,7 @@ end
 
 AskAwesomely.configure do |config|
   config.typeform_api_key = ENV.fetch("TYPEFORM_IO_API_KEY", "fake_api_key")
+  config.logger = Logger.new(StringIO.new)
 end
 
 def fixture(name)

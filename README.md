@@ -13,6 +13,7 @@ Build Typeforms awesomely. In Ruby.
 - [Usage](#usage)
   - [Authentication](#authentication)
   - [If you're using images](#if-youre-using-images)
+  - [Logging](#logging)
   - [Basic example](#basic-example)
 - [Available fields and options](#available-fields-and-options)
   - [Statement](#statement)
@@ -37,6 +38,7 @@ Build Typeforms awesomely. In Ruby.
     - [Widget](#widget)
     - [Drawer](#drawer)
     - [Fullscreen](#fullscreen)
+- [Getting Results](#getting-results)
 - [Development](#development)
 - [Feedback and Contributions](#feedback-and-contributions)
 
@@ -104,6 +106,16 @@ end
 ```
 
 As before, don't commit these keys to your repo unless you want [bad things to happen](http://vertis.io/2013/12/16/unauthorised-litecoin-mining.html). Check up on the [AWS Best Practices](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html) if you want to know more.
+
+### Logging
+
+`AskAwesomely` might warn you if you miss something out, just to make sure. By default this will go straight to `STDOUT`, but you can tell it to use your own logging:
+
+```ruby
+AskAwesomely.configure do |config|
+  config.logger = your_new_logger
+end
+```
 
 ### Basic example
 
@@ -351,7 +363,6 @@ field :legal do
 end
 ```
 
-
 ## Passing Context
 
 Building a form full of hard-coded data is all well and good, but it doesn't offer much benefit over using a web interface. What if you want to build personalised forms based on, say, an `ActiveRecord` model?
@@ -449,6 +460,23 @@ Note that this outputs a **complete** HTML document, CSS and all. If you're work
 ```ruby
 typeform.embed_as(:fullscreen)
 ```
+
+## Getting Results
+
+Typeform I/O uses webhooks to send you the responses to your Typeforms. You can configure the URL by telling it where to send responses to, like this:
+
+```ruby
+class UserTypeform
+
+  # all the fields ...
+
+  send_responses_to "https://www.my-awesome-website.com/webhooks"
+end
+```
+
+`AskAwesomely` will warn you if you don't configure this, as Typeform I/O doesn't store the responses for you and they'll be lost in the either.
+
+Check the documentation on [results and webhooks](http://docs.typeform.io/docs/results-introduction) to find out more about how this works, what happens when a webhook submission request fails, and how you can deduplicate your submissions.
 
 ## Development
 
