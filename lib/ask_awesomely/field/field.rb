@@ -61,8 +61,12 @@ module AskAwesomely
       @state.tags = tags
     end
     
-    def to_json(*args)
-      @state.to_h.to_json(*args)
+    def build_json(context = nil)
+      state.to_h.reduce({}) do |json, (k, v)|
+        json[k] = v.respond_to?(:call) ? v.call(context) : v
+        json
+      end
     end
+    
   end
 end

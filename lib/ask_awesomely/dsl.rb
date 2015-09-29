@@ -38,12 +38,27 @@ module AskAwesomely
 
     attr_reader :context, :json
 
-    private def initialize(context = nil)
+    def build_json
+      state.to_h.reduce({}) do |json, (k, v)|
+        json[k] = case k
+        when :title, :tags
+          v.respond_to?(:call) ? v.call(@context) : v
+        when :fields
+          v.map {|f| f.build_json(@context) }
+        end
+
+        json
+      end.to_json
+    end
+
+    private
+    
+    def initialize(context = nil)
       @context = context
     end
 
-    def to_json
-      self.class._state.to_h.to_json
+    def state
+      self.class._state
     end
 
   end
