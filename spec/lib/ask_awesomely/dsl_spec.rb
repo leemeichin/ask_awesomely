@@ -25,4 +25,18 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
     end
   end
 
+
+  describe "building a Typeform and passing in context" do
+    subject { UserTypeform }
+
+    let(:user) { { name: "Guillermo", email: "guillermo@example.com" } }
+    let(:json) { fixture("user_form") }
+
+    it "has a valid JSON representation when built" do
+      form = subject.build(user)
+      generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
+      generated_json.must_equal(json)
+    end
+  end
+
 end

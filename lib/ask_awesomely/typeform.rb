@@ -33,7 +33,7 @@ module AskAwesomely
     end
 
     def to_json
-      @structure.to_json
+      @structure.build_json
     end
 
     def get_binding

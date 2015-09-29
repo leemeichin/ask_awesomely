@@ -1,0 +1,18 @@
+{
+  "title": "Guillermo's Typeform",
+  "fields": [
+    {
+      "type": "statement",
+      "question": "Hello, Guillermo!"
+    },
+    {
+      "type": "yes_no",
+      "question": "Is your email address 'guillermo@example.com'?",
+      "required": true
+    }
+  ],
+  "tags": [
+    "example",
+    "with-context"
+  ]
+}
