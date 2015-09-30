@@ -25,7 +25,6 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
     end
   end
 
-
   describe "building a Typeform and passing in context" do
     subject { UserTypeform }
 
@@ -34,6 +33,19 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
 
     it "has a valid JSON representation when built" do
       form = subject.build(user)
+      generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
+      generated_json.must_equal(json)
+    end
+  end
+
+  describe "building a Typeform and using pictures" do
+    subject { PictureTypeform }
+
+    let(:json) { fixture("picture_form") }
+    
+    it "should replace an image file/url with an ID for Typeform" do
+      form = subject.build
+        
       generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
       generated_json.must_equal(json)
     end

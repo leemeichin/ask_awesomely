@@ -1,7 +1,7 @@
 module AskAwesomely
   class Picture
 
-    attr_reader :file_or_url, :public_url, :type, :typeform_id
+    attr_reader :file_or_url, :public_url, :type, :id
 
     DEFAULT_TYPE = :choice
     
@@ -21,6 +21,10 @@ module AskAwesomely
         file = upload_to_s3
         file.public_url
       end
+    end
+
+    def update_typeform_id(id)
+      @id = body.id
     end
 
     private
