@@ -421,7 +421,7 @@ end
 
 ### Embedding
 
-You can also embed a form straight away if you prefer. `AskAwesomely` generates the correct embed code for you, with the correct URL and Typeform title. The style can be customised with CSS but some aspects of the embed itself are not currently customisable (e.g. changing button text and widget size).
+You can also embed a form straight away if you prefer. `AskAwesomely` generates the correct embed code for you, with the correct URL and Typeform title. The style can be customised with CSS, and you can also tweak some of the output.
 
 To see what each embedding option looks like, check out the [`Embedding Modes`](http://docs.typeform.io/docs/embedding-introduction) documentation at Typeform I/O. It has pictures and everything.
 
@@ -432,7 +432,7 @@ Assuming you have built a Typeform as in the other examples, rendering the embed
 Pops up over the page content and fills most of the screen.
 
 ```ruby
-typeform.embed_as(:modal)
+typeform.embed_as(:modal, button_text: "Launch me!")
 ```
 
 #### Widget
@@ -440,7 +440,7 @@ typeform.embed_as(:modal)
 Allows you more control over where the form is embedded and how it appears. Just a box on the page.
 
 ```ruby
-typeform.embed_as(:widget)
+typeform.embed_as(:widget, width: "1024px", height: "768px")
 ```
 
 #### Drawer
@@ -448,7 +448,7 @@ typeform.embed_as(:widget)
 Makes the form slide in from the side of the page, hamburger menu style, and fills at least half of the screen.
 
 ```ruby
-typeform.embed_as(:drawer)
+typeform.embed_as(:drawer, button_text: "Launch me!")
 ```
 
 #### Fullscreen

@@ -9,9 +9,9 @@ require "ask_awesomely/api_client"
 require "ask_awesomely/typeform"
 require "ask_awesomely/embeddable"
 
-require "erb"
 require "json"
 require "uri"
+require "erubis"
 require "aws-sdk"
 require "typhoeus"
 

@@ -23,8 +23,8 @@ module AskAwesomely
       }.fetch("href")
     end
 
-    def embed_as(type)
-      Embeddable.new(type, options).render(binding)
+    def embed_as(type, options = {})
+      Embeddable.new(type, options).render(self, options)
     end
 
     def update_with_api_response(response)
@@ -36,8 +36,5 @@ module AskAwesomely
       @structure.build_json
     end
 
-    def get_binding
-      binding
-    end
   end
 end
