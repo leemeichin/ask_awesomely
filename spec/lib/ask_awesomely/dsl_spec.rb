@@ -41,6 +41,13 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
 
   describe "webhook urls" do
     subject { BasicTypeform }
+    let(:string_logger) { StringIO.new }
+
+    before do
+      AskAwesomely.configure do |config|
+        config.logger = Logger.new(string_logger)
+      end
+    end
     
     it "raises an error when the URL isn't valid" do
       proc {
@@ -49,11 +56,8 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
     end
 
     it "warns you when building a form without a webhook URL" do
-      skip("Need to mock the logger")
-      
-      proc {
-        subject.build
-      }.must_output(nil, /Your Typeform has no webhook URL!/)
+      subject.build
+      string_logger.string.must_match(/Your Typeform has no webhook URL!/)
     end
   end
 
