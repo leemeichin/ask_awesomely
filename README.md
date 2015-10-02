@@ -85,6 +85,9 @@ AskAwesomely.configure do |config|
 end
 ```
 
+If you don't already have a key, [sign up for one here](https://io1.typeform.com/to/HMLOBl?v=1).
+
+
 Your API Keys are **super secret** so don't commit them in your code. Use `ENV` or
 something like [dotenv](https://github.com/bkeepers/dotenv) so you can keep the credentials out of the repository. This stops bad people from stealing the key and hijacking your Typeform I/O account.
 
