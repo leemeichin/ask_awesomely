@@ -42,12 +42,17 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
     subject { PictureTypeform }
 
     let(:json) { fixture("picture_form") }
+
+    before do
+      VCR.turn_on!
+    end
     
     it "should replace an image file/url with an ID for Typeform" do
-      form = subject.build
-        
-      generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
-      generated_json.must_equal(json)
+      VCR.use_cassette("picture_uploads") do
+        form = subject.build
+        generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
+        generated_json.must_equal(json)
+      end
     end
   end
 

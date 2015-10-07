@@ -1,0 +1,142 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.typeform.io/latest/images
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://upload.wikimedia.org/wikipedia/commons/9/92/Soup_Spoon.jpg"}'
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.1.3)
+      X-API-TOKEN:
+      - "<API-KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-API-TOKEN,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 07 Oct 2015 17:53:45 GMT
+      Server:
+      - openresty/1.7.4.1
+      Content-Length:
+      - '197'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        {"id":"uAWgz7yfZf","type":"choice","url":"https://upload.wikimedia.org/wikipedia/commons/9/92/Soup_Spoon.jpg","filename":"choice-7jeACNrcnUwvEMWhvV5yCyQneUM2pRM7-default","height":230,"width":230}
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/latest/images
+  recorded_at: Wed, 07 Oct 2015 17:53:51 GMT
+- request:
+    method: post
+    uri: https://api.typeform.io/latest/images
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://upload.wikimedia.org/wikipedia/commons/7/7c/Assorted_forks.jpg"}'
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.1.3)
+      X-API-TOKEN:
+      - "<API-KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-API-TOKEN,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 07 Oct 2015 17:53:45 GMT
+      Server:
+      - openresty/1.7.4.1
+      Content-Length:
+      - '201'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        {"id":"rmY2eMwZRt","type":"choice","url":"https://upload.wikimedia.org/wikipedia/commons/7/7c/Assorted_forks.jpg","filename":"choice-GNQNgDVaafMLSh5y8MMY7jLkbvECLDDn-default","height":230,"width":230}
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/latest/images
+  recorded_at: Wed, 07 Oct 2015 17:53:51 GMT
+- request:
+    method: post
+    uri: https://api.typeform.io/latest/forms
+    body:
+      encoding: UTF-8
+      string: '{"title":"Picture Typeform","fields":[{"type":"picture_choice","question":"Spoon
+        or fork?","choices":[{"label":"Spoon","image_id":"uAWgz7yfZf"},{"label":"Fork","image_id":"rmY2eMwZRt"}]}],"tags":["example","with-picture"]}'
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.1.3)
+      X-API-TOKEN:
+      - "<API-KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-API-TOKEN,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 07 Oct 2015 17:53:46 GMT
+      Server:
+      - openresty/1.7.4.1
+      Content-Length:
+      - '405'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        {"id":"CA6sdnPRLv","title":"Picture Typeform","fields":[{"id":301507,"type":"picture_choice","question":"Spoon or fork?","choices":[{"label":"Spoon","image_id":"uAWgz7yfZf"},{"label":"Fork","image_id":"rmY2eMwZRt"}]}],"_links":[{"rel":"self","href":"https://api.typeform.io/v0.4/forms/CA6sdnPRLv"},{"rel":"form_render","href":"https://forms.typeform.io/to/CA6sdnPRLv"}],"tags":["example","with-picture"]}
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/latest/forms
+  recorded_at: Wed, 07 Oct 2015 17:53:52 GMT
+recorded_with: VCR 2.9.3

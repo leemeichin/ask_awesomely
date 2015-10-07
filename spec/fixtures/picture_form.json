@@ -1,0 +1,23 @@
+{
+  "title": "Picture Typeform",
+  "fields": [
+    {
+      "type": "picture_choice",
+      "question": "Spoon or fork?",
+      "choices": [
+        {
+          "label": "Spoon",
+          "image_id": "uAWgz7yfZf"
+        },
+        {
+          "label": "Fork",
+          "image_id": "rmY2eMwZRt"
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "example",
+    "with-picture"
+  ]
+}

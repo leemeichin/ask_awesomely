@@ -1,7 +1,7 @@
 class PictureTypeform
   include AskAwesomely::DSL
 
-  title -> (user) { "#{user[:name]}'s Typeform" } 
+  title "Picture Typeform"
 
   tags "example", "with-picture"
 

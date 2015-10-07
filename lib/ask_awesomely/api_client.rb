@@ -42,8 +42,7 @@ module AskAwesomely
         body: picture.to_json
       )
 
-      body = JSON.parse(response.body)
-      picture.update_with_api_response(body)
+      JSON.parse(response.body)
     end
 
     private

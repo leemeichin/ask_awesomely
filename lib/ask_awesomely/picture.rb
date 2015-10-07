@@ -1,7 +1,7 @@
 module AskAwesomely
   class Picture
 
-    attr_reader :file_or_url, :public_url, :type, :id
+    attr_reader :file_or_url, :public_url, :type, :typeform_id
 
     DEFAULT_TYPE = :choice
     
@@ -23,8 +23,14 @@ module AskAwesomely
       end
     end
 
-    def update_typeform_id(id)
-      @id = body.id
+    def typeform_id
+      @id ||= upload_to_typeform["id"]
+    end
+
+    def to_json(*)
+      {
+        url: public_url,
+      }.to_json
     end
 
     private
@@ -39,6 +45,10 @@ module AskAwesomely
 
     def upload_to_s3
       S3.upload(Pathname.new(file_or_url))
+    end
+
+    def upload_to_typeform
+      ApiClient.new.submit_picture(self)
     end
 
   end
