@@ -134,7 +134,7 @@ class MyNewTypeform
   tags "awesome", "hehe"
 
   field :statement do
-    say "Hello, Rubyists!"
+    say ->(user) { "Hello, #{user.name}!" }
   end
 
   field :multiple_choice do
@@ -153,7 +153,8 @@ end
 After that, it's simply a matter of calling `build` on the class:
 
 ```ruby
-typeform = MyNewTypeform.build
+user = OpenStruct.new(name: "Rubyist")
+typeform = MyNewTypeform.build(user)
 ```
 
 Check out [Typeform I/O](https://typeform.io) for detailed information about the API, and how to get your API key.
