@@ -1,3 +1,10 @@
+require "forwardable"
+require "json"
+require "uri"
+require "erubis"
+require "aws-sdk"
+require "typhoeus"
+
 require "ask_awesomely/version"
 require "ask_awesomely/configuration"
 require "ask_awesomely/dsl"
@@ -8,12 +15,6 @@ require "ask_awesomely/s3"
 require "ask_awesomely/api_client"
 require "ask_awesomely/typeform"
 require "ask_awesomely/embeddable"
-
-require "json"
-require "uri"
-require "erubis"
-require "aws-sdk"
-require "typhoeus"
 
 module AskAwesomely
 
