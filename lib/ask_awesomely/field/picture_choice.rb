@@ -3,10 +3,10 @@ module AskAwesomely
 
     def initialize(*)
       super
-      @state.choices = []
     end
 
     def choice(label, picture:)
+      @state.choices ||= []
       @state.choices << Choice.new(label: label, picture: picture)
     end
 

@@ -50,13 +50,12 @@ module AskAwesomely
       warn_if_no_webhook_set!
       
       state.to_h.reduce({}) do |json, (k, v)|
-        json[k] = case k
-        when :fields
-          v.map {|f| f.build_json(@context) }
-        when :webhook_submit_url
-           v
+        json[k] = case
+        when v.respond_to?(:to_ary) then v.map {|f| f.respond_to?(:build_json) ? f.build_json(context) : f }
+        when v.respond_to?(:call) then v.call(context)
+        when v.respond_to?(:build_json) then v.build_json(context)
         else
-          v.respond_to?(:call) ? v.call(@context) : v
+          v
         end
 
         json

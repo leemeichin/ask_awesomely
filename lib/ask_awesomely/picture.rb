@@ -23,6 +23,16 @@ module AskAwesomely
       end
     end
 
+    def typeform_id
+      @id ||= upload_to_typeform["id"]
+    end
+
+    def to_json(*)
+      {
+        url: public_url,
+      }.to_json
+    end
+
     private
 
     def url?
@@ -35,6 +45,10 @@ module AskAwesomely
 
     def upload_to_s3
       S3.upload(Pathname.new(file_or_url))
+    end
+
+    def upload_to_typeform
+      ApiClient.new.submit_picture(self)
     end
 
   end

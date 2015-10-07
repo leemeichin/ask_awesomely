@@ -13,4 +13,5 @@ class UserTypeform
     ask -> (user) {"Is your email address '#{user[:email]}'?" }
     required
   end
+
 end

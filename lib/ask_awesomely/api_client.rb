@@ -5,7 +5,8 @@ module AskAwesomely
     BASE_URL = "https://api.typeform.io/latest"
     ENDPOINTS = {
       root: "/",
-      create_typeform: "/forms"
+      create_typeform: "/forms",
+      create_picture: "/images"
     }
     
     def initialize
@@ -32,6 +33,16 @@ module AskAwesomely
         body = JSON.parse(response.body)
         tf.update_with_api_response(body)
       end
+    end
+
+    def submit_picture(picture)
+      response = request.post(
+        url_for(:create_picture),
+        headers: headers,
+        body: picture.to_json
+      )
+
+      JSON.parse(response.body)
     end
 
     private
