@@ -427,7 +427,7 @@ end
 
 You can also embed a form straight away if you prefer. `AskAwesomely` generates the correct embed code for you, with the correct URL and Typeform title. The style can be customised with CSS, and you can also tweak some of the output.
 
-To see what each embedding option looks like, check out the [`Embedding Modes`](http://docs.typeform.io/docs/embedding-introduction) documentation at Typeform I/O. It has pictures and everything.
+To see what each embedding option looks like, check out the [**Embedding Modes**](http://docs.typeform.io/docs/embedding-introduction) documentation at Typeform I/O. It has pictures and everything.
 
 Assuming you have built a Typeform as in the other examples, rendering the embed code is simple:
 
@@ -478,7 +478,7 @@ class UserTypeform
 end
 ```
 
-`AskAwesomely` will warn you if you don't configure this, as Typeform I/O doesn't store the responses for you and they'll be lost in the either.
+*Ask Awesomely* will warn you if you don't configure this, as Typeform I/O doesn't store the responses for you and they'll be lost in the ether.
 
 Check the documentation on [results and webhooks](http://docs.typeform.io/docs/results-introduction) to find out more about how this works, what happens when a webhook submission request fails, and how you can deduplicate your submissions.
 
