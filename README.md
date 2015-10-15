@@ -394,7 +394,7 @@ Consider a form where you ask for the user's email address:
 
 ```ruby
 class EmailTypeform
-  use AskAwesomely::DSL
+  include AskAwesomely::DSL
 
   field :email do
     ask -> (user) { "Hey #{user.name}, what is your email address?" }
@@ -409,7 +409,7 @@ What if you already have the user's email? It makes no sense to repeatedly ask f
 
 ```ruby
 class EmailTypeform
-  use AskAwesomely::DSL
+  include AskAwesomely::DSL
 
   field :email do
     ask -> (user) { "Hey #{user.name}, what is your email address?" }
