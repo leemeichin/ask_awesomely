@@ -29,6 +29,8 @@ Build Typeforms awesomely. In Ruby.
   - [Email](#email)
   - [Website](#website)
   - [Legal](#legal)
+- [Logic Jumps](#logic-jumps)
+- [Conditional Fields](#conditional-fields)
 - [Common Customisations](#common-customisations)
 - [Passing Context](#passing-context)
 - [Rendering the Typeform](#rendering-the-typeform)
