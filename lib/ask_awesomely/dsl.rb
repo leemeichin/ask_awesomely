@@ -35,6 +35,11 @@ module AskAwesomely
         _state.fields << Field::Field.of_type(type, &block)
       end
 
+      def jump(conditions)
+        _state.jumps ||= []
+        _state.jumps << LogicJump.new(conditions)
+      end
+
       def send_responses_to(url)
         unless url =~ /\A#{URI::regexp(['http', 'https'])}\z/
           raise AskAwesomely::InvalidUrlError, "you must use a valid URL for webhooks, e.g https://example.com/webhook"
