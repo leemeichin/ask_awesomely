@@ -6,6 +6,7 @@ require "aws-sdk"
 require "typhoeus"
 
 require "ask_awesomely/version"
+require "ask_awesomely/json_builder"
 require "ask_awesomely/configuration"
 require "ask_awesomely/dsl"
 require "ask_awesomely/field"
@@ -15,6 +16,7 @@ require "ask_awesomely/s3"
 require "ask_awesomely/api_client"
 require "ask_awesomely/typeform"
 require "ask_awesomely/embeddable"
+require "ask_awesomely/logic_jump"
 
 module AskAwesomely
 

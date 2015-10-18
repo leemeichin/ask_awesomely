@@ -3,6 +3,7 @@
 Build Typeforms awesomely. In Ruby.
 
 [![Gem Version](https://badge.fury.io/rb/ask_awesomely.svg)](http://badge.fury.io/rb/ask_awesomely) [![Build Status](https://travis-ci.org/leemachin/ask_awesomely.svg?branch=master)](https://travis-ci.org/leemachin/ask_awesomely)
+[![Code Climate](https://codeclimate.com/github/leemachin/ask_awesomely/badges/gpa.svg)](https://codeclimate.com/github/leemachin/ask_awesomely)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -29,6 +30,8 @@ Build Typeforms awesomely. In Ruby.
   - [Email](#email)
   - [Website](#website)
   - [Legal](#legal)
+- [Logic Jumps](#logic-jumps)
+- [Conditional Fields](#conditional-fields)
 - [Common Customisations](#common-customisations)
 - [Passing Context](#passing-context)
 - [Rendering the Typeform](#rendering-the-typeform)
@@ -349,6 +352,81 @@ field :legal
 end
 ```
 
+## Logic Jumps
+
+A logic jump allows you to change the next questions you ask based on the answer of a previous question. For example, you could have a `yes_no` field that shows one question if the answer is 'yes', and a different question if the answer is 'no'. At the time of writing this is the only supported behaviour for logic jumps.
+
+Check out the [documentation on Logic Jumps](http://docs.typeform.io/docs/logic-jumps) to understand more about how they work.
+
+In order to set one up, you need to give the relevant fields a reference. In this case, when the user answers 'no' to the first question about their age, it should immediately go to the next question like normal. If they answer 'yes', though, the form should ask them another question to confirm they're not lying about being grown up.
+
+```ruby
+field :yes_no do
+  ask "Are you over 18?"
+  required
+
+  ref :is_over_18
+end
+
+field :statement do
+  say "You're too young to continue"
+end
+
+field :yes_no do
+  ask "Are you *sure* you're over 18?"
+  required
+
+  ref :is_really_over_18?
+end
+```
+
+Notice how the two `yes_no` fields have a reference. These are what we use to define the logic jump:
+
+```ruby
+jump from: :is_over_18, to: :is_really_over_18?, if_answer: true
+
+```
+
+If you need to change the structure of a Typeform based on your own data and not that supplied in an answer, then continue on to [**Conditional Fields**](#conditional-fields).
+
+## Conditional Fields
+
+Consider a form where you ask for the user's email address:
+
+```ruby
+class EmailTypeform
+  include AskAwesomely::DSL
+
+  field :email do
+    ask -> (user) { "Hey #{user.name}, what is your email address?" }
+    required
+  end
+
+  # ... more fields
+end
+```
+
+What if you already have the user's email? It makes no sense to repeatedly ask for it, does it? You can tell *Ask Awesomely* to not include this field if a certain condition is met; in this case the user having an email address already.
+
+```ruby
+class EmailTypeform
+  include AskAwesomely::DSL
+
+  field :email do
+    ask -> (user) { "Hey #{user.name}, what is your email address?" }
+    required
+
+    skip if: -> (user) { !user.email.nil? }
+
+    # alternatively
+    skip unless: -> (user) { user.email.nil? }
+  end
+
+  # ... more fields
+end
+```
+
+Note that this is not a feature of the Typeform I/O API. These conditions are evaluated at **build time** and not when the form is rendered (as with logic jumps), which means that the field won't be included in the final Typeform at all.
 
 ## Common Customisations
 

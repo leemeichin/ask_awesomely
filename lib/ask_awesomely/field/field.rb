@@ -1,6 +1,8 @@
 module AskAwesomely
   class Field::Field
 
+    prepend JsonBuilder
+
     VALID_FIELD_TYPES = %i(
       short_text 
       long_text 
@@ -61,18 +63,18 @@ module AskAwesomely
       @state.tags = tags
     end
     
-    def build_json(context = nil)
-      state.to_h.reduce({}) do |json, (k, v)|
-        json[k] = case 
-        when v.respond_to?(:to_ary) then v.map {|f| f.respond_to?(:build_json) ? f.build_json(context) : f }
-        when v.respond_to?(:call) then v.call(context)
-        when v.respond_to?(:build_json) then v.build_json(context)
-        else
-          v
-        end
-        json
+    def ref(name)
+      @state.ref = name.to_s
+    end
+
+    def skip(condition)
+      if cond_if = condition[:if]
+        @state.skip = -> (context) { cond_if.call(context) == true }
+      end
+
+      if cond_unless = condition[:unless]
+        @state.skip = -> (context) { cond_unless.call(context) != true }
       end
     end
-    
   end
 end
