@@ -3,6 +3,7 @@
 Build Typeforms awesomely. In Ruby.
 
 [![Gem Version](https://badge.fury.io/rb/ask_awesomely.svg)](http://badge.fury.io/rb/ask_awesomely) [![Build Status](https://travis-ci.org/leemachin/ask_awesomely.svg?branch=master)](https://travis-ci.org/leemachin/ask_awesomely)
+[![Code Climate](https://codeclimate.com/github/leemachin/ask_awesomely/badges/gpa.svg)](https://codeclimate.com/github/leemachin/ask_awesomely)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
