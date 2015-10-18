@@ -38,6 +38,18 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
     end
   end
 
+  describe "building a Typeform and using logic jumps" do
+    subject { LogicTypeform }
+
+    let(:json) { fixture("logic_form") }
+
+    it "has a valid representation when built" do
+      form = subject.build
+      generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
+      generated_json.must_equal(json)
+    end
+  end
+
   describe "building a Typeform and using pictures" do
     subject { PictureTypeform }
 

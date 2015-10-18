@@ -1,0 +1,30 @@
+{
+  "title": "My Example Form",
+  "fields": [
+    {
+      "type": "yes_no",
+      "question": "Shall we continue?",
+      "ref": "shall_continue?"
+    },
+    {
+      "type": "statement",
+      "question": "Thanks!"
+    },
+    {
+      "type": "statement",
+      "question": "Wut?",
+      "ref": "shall_not_continue"
+    }
+  ],
+  "tags": [
+    "example",
+    "logic-jumps"
+  ],
+  "jumps": [
+    {
+      "to": "shall_not_continue",
+      "from": "shall_continue?",
+      "if_answer": false
+    }
+  ]
+}
