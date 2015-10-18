@@ -386,7 +386,7 @@ jump from: :is_over_18, to: :is_really_over_18?, if_answer: true
 
 ```
 
-If you need to change the structure of a Typeform based on your own data and not that supplied in an answer, then continue on to **Conditional Fields**.
+If you need to change the structure of a Typeform based on your own data and not that supplied in an answer, then continue on to [**Conditional Fields**](#conditional-fields).
 
 ## Conditional Fields
 
