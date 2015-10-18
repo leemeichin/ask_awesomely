@@ -2,7 +2,8 @@ module AskAwesomely
   module JsonBuilder
     
     def build_json(context = nil)
-      super unless method(__method__).super_method.nil?
+      super if defined?(super) 
+
       state.to_h.reduce({}) do |json, (k, v)|
 
         next if k == :skip && v.call(context) == true

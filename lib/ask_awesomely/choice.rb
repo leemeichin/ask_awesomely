@@ -11,7 +11,7 @@ module AskAwesomely
       )
 
       if picture 
-        @state[:image_id] = proc { Picture.new(picture).typeform_id }
+        @state.image_id = proc { Picture.new(picture).typeform_id }
       end
     end
 
