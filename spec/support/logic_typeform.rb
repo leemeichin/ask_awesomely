@@ -20,4 +20,17 @@ class LogicTypeform
     say "Wut?"
     ref :shall_not_continue
   end
+
+  field :statement do
+    say "I shouldn't be here"
+
+    skip if: proc { true }
+  end
+
+  field :statement do
+    say "I also shouldn't be here"
+
+    skip unless: proc { false }
+  end
+  
 end

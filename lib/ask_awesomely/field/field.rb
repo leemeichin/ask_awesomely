@@ -66,6 +66,15 @@ module AskAwesomely
     def ref(name)
       @state.ref = name.to_s
     end
-    
+
+    def skip(condition)
+      if cond_if = condition[:if]
+        @state.skip = -> (context) { cond_if.call(context) == true }
+      end
+
+      if cond_unless = condition[:unless]
+        @state.skip = -> (context) { cond_unless.call(context) != true }
+      end
+    end
   end
 end
