@@ -19,7 +19,7 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
 
     it "has a valid JSON representation when built" do
       form = subject.build
-      
+
       generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
       generated_json.must_equal(json)
     end
@@ -58,9 +58,27 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
     before do
       VCR.turn_on!
     end
-    
+
     it "should replace an image file/url with an ID for Typeform" do
       VCR.use_cassette("picture_uploads") do
+        form = subject.build
+        generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
+        generated_json.must_equal(json)
+      end
+    end
+  end
+
+  describe "building a Typeform and using designs" do
+    subject { DesignTypeform }
+
+    let(:json) { fixture("design_form") }
+
+    before do
+      VCR.turn_on!
+    end
+
+    it "should create a typeform with a new design ID" do
+      VCR.use_cassette("design_uploads") do
         form = subject.build
         generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
         generated_json.must_equal(json)
@@ -77,7 +95,7 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
         config.logger = Logger.new(string_logger)
       end
     end
-    
+
     it "raises an error when the URL isn't valid" do
       proc {
         subject.send_responses_to("nonsense-string.com")

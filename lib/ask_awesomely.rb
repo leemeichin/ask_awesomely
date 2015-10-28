@@ -17,6 +17,7 @@ require "ask_awesomely/api_client"
 require "ask_awesomely/typeform"
 require "ask_awesomely/embeddable"
 require "ask_awesomely/logic_jump"
+require "ask_awesomely/design"
 
 module AskAwesomely
 
@@ -24,6 +25,7 @@ module AskAwesomely
   FieldTypeError = Class.new(ArgumentError)
   EmbedTypeError = Class.new(ArgumentError)
   InvalidUrlError = Class.new(TypeError)
+  InvalidFontError = Class.new(ArgumentError)
 
   def self.configuration
     @configuration ||= Configuration.new

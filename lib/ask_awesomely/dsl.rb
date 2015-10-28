@@ -41,11 +41,15 @@ module AskAwesomely
         _state.jumps << LogicJump.new(conditions)
       end
 
+      def design(id = nil, &block)
+        _state.design_id = id || ->(_) { Design.new(&block).id }
+      end
+
       def send_responses_to(url)
         unless url =~ /\A#{URI::regexp(['http', 'https'])}\z/
           raise AskAwesomely::InvalidUrlError, "you must use a valid URL for webhooks, e.g https://example.com/webhook"
         end
-        
+
         _state.webhook_submit_url = url
       end
     end
@@ -58,7 +62,7 @@ module AskAwesomely
     end
 
     private
-    
+
     def initialize(context = nil)
       @context = context
       @state = self.class._state
@@ -68,7 +72,7 @@ module AskAwesomely
       return if state.webhook_submit_url
       AskAwesomely.configuration.logger.warn(<<-STR.gsub(/^\s*/, ''))
         Your Typeform has no webhook URL! The responses to this form **will NOT** be saved!
-        To set one, add `send_responses_to "https://example.com/webhook"` to #{self.class.name} 
+        To set one, add `send_responses_to "https://example.com/webhook"` to #{self.class.name}
       STR
     end
   end

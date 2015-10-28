@@ -352,6 +352,27 @@ field :legal
 end
 ```
 
+## Custom Designs
+
+You can customise the appearance of your Typeform by adding a design. While you don't have as much control as you would through the builder on Typeform.com, you are still able to play with colours and fonts. The documentation contains a list of [possible font selections](http://docs.typeform.io/docs/designs).
+
+```ruby
+design do
+  question_color "#FF0099"
+  button_color "#ABCDEF"
+  answer_color "#4AF6E9"
+  background_color "#000000"
+
+  font "Vollkorn"
+end
+```
+
+If you already have a design and would like to re-use it, you can use an ID from the created form.
+
+```ruby
+    design 12345
+```
+
 ## Logic Jumps
 
 A logic jump allows you to change the next questions you ask based on the answer of a previous question. For example, you could have a `yes_no` field that shows one question if the answer is 'yes', and a different question if the answer is 'no'. At the time of writing this is the only supported behaviour for logic jumps.
