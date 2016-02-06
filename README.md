@@ -371,7 +371,7 @@ end
 If you already have a design and would like to re-use it, you can use an ID from the created form.
 
 ```ruby
-    design 12345
+design 12345
 ```
 
 ## Logic Jumps
