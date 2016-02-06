@@ -30,6 +30,7 @@ Build Typeforms awesomely. In Ruby.
   - [Email](#email)
   - [Website](#website)
   - [Legal](#legal)
+- [Custom Designs](#custom-designs)
 - [Logic Jumps](#logic-jumps)
 - [Conditional Fields](#conditional-fields)
 - [Common Customisations](#common-customisations)
