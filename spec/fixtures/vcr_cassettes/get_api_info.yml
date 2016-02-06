@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.typeform.io/latest/
+    uri: https://api.typeform.io/v0.4/
     body:
       encoding: US-ASCII
       string: ''
@@ -44,6 +44,6 @@ http_interactions:
         {"description":"Build API for creating forms awesomely","documentation":"https://docs.typeform.io/","name":"Typeform I/O Build API","support":"support@typeform.io","time":"2015-09-26 20:04:00.550727979 +0000 UTC","version":"v0.4"}
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.typeform.io/latest/
+      effective_url: https://api.typeform.io/v0.4/
   recorded_at: Sat, 26 Sep 2015 20:04:00 GMT
 recorded_with: VCR 2.9.3

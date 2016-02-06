@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.typeform.io/latest/images
+    uri: https://api.typeform.io/v0.4/images
     body:
       encoding: UTF-8
       string: '{"url":"https://upload.wikimedia.org/wikipedia/commons/9/92/Soup_Spoon.jpg"}'
@@ -44,11 +44,11 @@ http_interactions:
         {"id":"cpH8GWHLmU","type":"choice","url":"https://upload.wikimedia.org/wikipedia/commons/9/92/Soup_Spoon.jpg","filename":"choice-FVrwwSGjywKUhNB5kh8RpgSfZqSMKfvH-default","height":230,"width":230}
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.typeform.io/latest/images
+      effective_url: https://api.typeform.io/v0.4/images
   recorded_at: Sun, 18 Oct 2015 13:11:55 GMT
 - request:
     method: post
-    uri: https://api.typeform.io/latest/images
+    uri: https://api.typeform.io/v0.4/images
     body:
       encoding: UTF-8
       string: '{"url":"https://upload.wikimedia.org/wikipedia/commons/7/7c/Assorted_forks.jpg"}'
@@ -90,11 +90,11 @@ http_interactions:
         {"id":"Cm7PEGWsJ9","type":"choice","url":"https://upload.wikimedia.org/wikipedia/commons/7/7c/Assorted_forks.jpg","filename":"choice-x2ZZVsBLgXdNqeYyBf8hS2KWmX2L6ANL-default","height":230,"width":230}
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.typeform.io/latest/images
+      effective_url: https://api.typeform.io/v0.4/images
   recorded_at: Sun, 18 Oct 2015 13:11:57 GMT
 - request:
     method: post
-    uri: https://api.typeform.io/latest/forms
+    uri: https://api.typeform.io/v0.4/forms
     body:
       encoding: UTF-8
       string: '{"title":"Picture Typeform","fields":[{"type":"picture_choice","question":"Spoon
@@ -137,11 +137,11 @@ http_interactions:
         {"id":"cg4zpujD3A","title":"Picture Typeform","fields":[{"id":348456,"type":"picture_choice","question":"Spoon or fork?","choices":[{"label":"Spoon","image_id":"cpH8GWHLmU"},{"label":"Fork","image_id":"Cm7PEGWsJ9"}]}],"_links":[{"rel":"self","href":"https://api.typeform.io/v0.4/forms/cg4zpujD3A"},{"rel":"form_render","href":"https://forms.typeform.io/to/cg4zpujD3A"}],"tags":["example","with-picture"]}
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.typeform.io/latest/forms
+      effective_url: https://api.typeform.io/v0.4/forms
   recorded_at: Sun, 18 Oct 2015 13:11:58 GMT
 - request:
     method: post
-    uri: https://api.typeform.io/latest/images
+    uri: https://api.typeform.io/v0.4/images
     body:
       encoding: UTF-8
       string: '{"url":"https://upload.wikimedia.org/wikipedia/commons/9/92/Soup_Spoon.jpg"}'
@@ -183,11 +183,11 @@ http_interactions:
         {"id":"mDfVVgKRmV","type":"choice","url":"https://upload.wikimedia.org/wikipedia/commons/9/92/Soup_Spoon.jpg","filename":"choice-t4nRkMKBJATysysFiF2ESXUc7KCfxdCt-default","height":230,"width":230}
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.typeform.io/latest/images
+      effective_url: https://api.typeform.io/v0.4/images
   recorded_at: Sun, 18 Oct 2015 13:11:58 GMT
 - request:
     method: post
-    uri: https://api.typeform.io/latest/images
+    uri: https://api.typeform.io/v0.4/images
     body:
       encoding: UTF-8
       string: '{"url":"https://upload.wikimedia.org/wikipedia/commons/7/7c/Assorted_forks.jpg"}'
@@ -229,6 +229,6 @@ http_interactions:
         {"id":"RkEWFxSx65","type":"choice","url":"https://upload.wikimedia.org/wikipedia/commons/7/7c/Assorted_forks.jpg","filename":"choice-byBWrtP9vs9RiTXZSGinECbVZvcH4Utp-default","height":230,"width":230}
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.typeform.io/latest/images
+      effective_url: https://api.typeform.io/v0.4/images
   recorded_at: Sun, 18 Oct 2015 13:11:58 GMT
 recorded_with: VCR 2.9.3

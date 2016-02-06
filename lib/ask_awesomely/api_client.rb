@@ -2,13 +2,13 @@ module AskAwesomely
   class ApiClient
 
     USER_AGENT = "leemachin/ask_awesomely; (v#{AskAwesomely::VERSION})"
-    BASE_URL = "https://api.typeform.io/latest"
+    BASE_URL = "https://api.typeform.io/v0.4"
     ENDPOINTS = {
       root: "/",
       create_typeform: "/forms",
       create_picture: "/images"
     }
-    
+
     def initialize
       Typhoeus::Config.user_agent = USER_AGENT
     end
@@ -21,7 +21,7 @@ module AskAwesomely
 
       JSON.parse(response.body)
     end
-    
+
     def submit_typeform(typeform)
       response = request.post(
         url_for(:create_typeform),

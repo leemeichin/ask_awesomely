@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.typeform.io/latest/forms
+    uri: https://api.typeform.io/v0.4/forms
     body:
       encoding: UTF-8
       string: '{"title":"My Example Form","fields":[{"type":"statement","question":"This
@@ -45,6 +45,6 @@ http_interactions:
         {"id":"uc5ag9dzpW","title":"My Example Form","fields":[{"id":267430,"type":"statement","question":"This is a test!"},{"id":267431,"type":"short_text","question":"What do you think?","required":true,"tags":["opinion"]}],"_links":[{"rel":"self","href":"https://api.typeform.io/v0.4/forms/uc5ag9dzpW"},{"rel":"form_render","href":"https://forms.typeform.io/to/uc5ag9dzpW"}],"tags":["example","first-attempt"]}
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.typeform.io/latest/forms
+      effective_url: https://api.typeform.io/v0.4/forms
   recorded_at: Sat, 26 Sep 2015 20:04:00 GMT
 recorded_with: VCR 2.9.3
