@@ -4,10 +4,10 @@ module AskAwesomely
     prepend JsonBuilder
 
     VALID_FIELD_TYPES = %i(
-      short_text 
-      long_text 
-      multiple_choice 
-      picture_choice 
+      short_text
+      long_text
+      multiple_choice
+      picture_choice
       statement
       dropdown
       yes_no
@@ -21,29 +21,14 @@ module AskAwesomely
 
     attr_reader :state
 
-    # todo: make this easier to maintain
     def self.of_type(type, &block)
-      field = case type
-      when :short_text then Field::ShortText
-      when :long_text then Field::LongText
-      when :multiple_choice then Field::MultipleChoice
-      when :picture_choice then Field::PictureChoice
-      when :statement then Field::Statement
-      when :dropdown then Field::Dropdown
-      when :yes_no then Field::YesNo
-      when :number then Field::Number
-      when :rating then Field::Rating
-      when :opinion_scale then Field::OpinionScale
-      when :email then Field::Email
-      when :website then Field::Website
-      when :legal then Field::Legal
-      else
-        raise FieldTypeError, "This type of field does not exist, please use one of: #{VALID_FIELD_TYPES.join(", ")}"
-      end
-
+      field_type = type.to_s.split('_').map(&:capitalize).join
+      field = AskAwesomely::Field.const_get(field_type)
       field.new(type, &block)
+    rescue NameError
+        raise FieldTypeError, "This type of field does not exist, please use one of: #{VALID_FIELD_TYPES.join(", ")}"
     end
-    
+
     # Allow init with properties common to *all* fields
     def initialize(type, &block)
       @state = OpenStruct.new(type: type)
@@ -54,7 +39,7 @@ module AskAwesomely
     def ask(question)
       @state.question = question
     end
-    
+
     def required
       @state.required = true
     end
@@ -62,17 +47,19 @@ module AskAwesomely
     def tags(*tags)
       @state.tags = tags
     end
-    
+
     def ref(name)
       @state.ref = name.to_s
     end
 
     def skip(condition)
-      if cond_if = condition[:if]
+      if condition[:if]
+        cond_if = condition[:if]
         @state.skip = -> (context) { cond_if.call(context) == true }
       end
 
-      if cond_unless = condition[:unless]
+      if condition[:unless]
+        cond_unless = condition[:unless]
         @state.skip = -> (context) { cond_unless.call(context) != true }
       end
     end
