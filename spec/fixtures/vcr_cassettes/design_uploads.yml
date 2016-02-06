@@ -1,0 +1,142 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.typeform.io/v0.4/designs
+    body:
+      encoding: UTF-8
+      string: '{"colors":{"background":"#ff0033","answer":"#3300ff","question":"#ff3300","button":"#00ff33"},"font":"Vollkorn"}'
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.1.6)
+      X-API-TOKEN:
+      - "<API-KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-API-TOKEN,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 06 Feb 2016 14:36:25 GMT
+      Server:
+      - openresty/1.7.4.1
+      Content-Length:
+      - '148'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        {"id":"DZpQHxMYge","colors":{"answer":"#3300ff","background":"#ff0033","button":"#00ff33","question":"#ff3300"},"font":"Vollkorn","version":"v0.4"}
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/v0.4/designs
+  recorded_at: Sat, 06 Feb 2016 14:36:25 GMT
+- request:
+    method: post
+    uri: https://api.typeform.io/v0.4/forms
+    body:
+      encoding: UTF-8
+      string: '{"title":"Design Typeform","fields":[{"type":"statement","question":"I
+        am just a test"}],"tags":["example","with-design"],"design_id":"DZpQHxMYge"}'
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.1.6)
+      X-API-TOKEN:
+      - "<API-KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-API-TOKEN,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 06 Feb 2016 14:36:25 GMT
+      Server:
+      - openresty/1.7.4.1
+      Content-Length:
+      - '617'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        {"id":"AA3UCCZwY4","design":{"id":"DZpQHxMYge","colors":{"answer":"#3300ff","background":"#ff0033","button":"#00ff33","question":"#ff3300"},"font":"Vollkorn","version":"v0.4"},"title":"Design Typeform","fields":[{"id":1857473,"type":"statement","question":"I am just a test"}],"urls":[{"id":"nhiWVbiMkk","form_id":"AA3UCCZwY4","version":"v0.4"}],"_links":[{"rel":"self","href":"https://api.typeform.io/v0.4/forms/AA3UCCZwY4"},{"rel":"form_render","href":"https://forms.typeform.io/to/nhiWVbiMkk"},{"rel":"url","href":"https://api.typeform.io/v0.4/urls/nhiWVbiMkk"}],"tags":["example","with-design"],"version":"v0.4"}
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/v0.4/forms
+  recorded_at: Sat, 06 Feb 2016 14:36:26 GMT
+- request:
+    method: post
+    uri: https://api.typeform.io/v0.4/designs
+    body:
+      encoding: UTF-8
+      string: '{"colors":{"background":"#ff0033","answer":"#3300ff","question":"#ff3300","button":"#00ff33"},"font":"Vollkorn"}'
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.1.6)
+      X-API-TOKEN:
+      - "<API-KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-API-TOKEN,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 06 Feb 2016 14:36:26 GMT
+      Server:
+      - openresty/1.7.4.1
+      Content-Length:
+      - '148'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        {"id":"wUfiDLkhbx","colors":{"answer":"#3300ff","background":"#ff0033","button":"#00ff33","question":"#ff3300"},"font":"Vollkorn","version":"v0.4"}
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/v0.4/designs
+  recorded_at: Sat, 06 Feb 2016 14:36:26 GMT
+recorded_with: VCR 2.9.3

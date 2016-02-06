@@ -4,7 +4,7 @@ module AskAwesomely
     attr_reader :file_or_url, :public_url, :type, :typeform_id
 
     DEFAULT_TYPE = :choice
-    
+
     PICTURE_TYPES = [
       :choice
     ]

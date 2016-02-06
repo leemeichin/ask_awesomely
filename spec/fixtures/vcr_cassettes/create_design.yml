@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.typeform.io/v0.4/designs
+    body:
+      encoding: UTF-8
+      string: '{"colors":{"question":"#ff3300","background":"#ff0033","answer":"#0033ff","button":"#00ff33"},"font":"Arvo"}'
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.1.6)
+      X-API-TOKEN:
+      - "<API-KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-API-TOKEN,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 06 Feb 2016 14:51:58 GMT
+      Server:
+      - openresty/1.7.4.1
+      Content-Length:
+      - '144'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        {"id":"5SWktYqkvg","colors":{"answer":"#0033ff","background":"#ff0033","button":"#00ff33","question":"#ff3300"},"font":"Arvo","version":"v0.4"}
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/v0.4/designs
+  recorded_at: Sat, 06 Feb 2016 14:51:58 GMT
+recorded_with: VCR 2.9.3

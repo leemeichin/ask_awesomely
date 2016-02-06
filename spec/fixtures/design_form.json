@@ -1,0 +1,14 @@
+{
+  "title": "Design Typeform",
+  "fields": [
+    {
+      "type": "statement",
+      "question": "I am just a test"
+    }
+  ],
+  "tags": [
+    "example",
+    "with-design"
+  ],
+  "design_id": "wUfiDLkhbx"
+}

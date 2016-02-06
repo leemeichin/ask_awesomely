@@ -6,7 +6,8 @@ module AskAwesomely
     ENDPOINTS = {
       root: "/",
       create_typeform: "/forms",
-      create_picture: "/images"
+      create_picture: "/images",
+      create_design: "/designs"
     }
 
     def initialize
@@ -40,6 +41,16 @@ module AskAwesomely
         url_for(:create_picture),
         headers: headers,
         body: picture.to_json
+      )
+
+      JSON.parse(response.body)
+    end
+
+    def submit_design(design)
+      response = request.post(
+        url_for(:create_design),
+        headers: headers,
+        body: design.to_json
       )
 
       JSON.parse(response.body)
