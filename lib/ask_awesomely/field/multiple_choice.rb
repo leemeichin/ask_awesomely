@@ -1,12 +1,8 @@
 module AskAwesomely
   class Field::MultipleChoice < Field::Field
 
-    def initialize(*)
-      super
-      @state.choices = []
-    end
-    
     def choice(label)
+      @state.choices ||= []
       @state.choices << Choice.new(label: label)
     end
 
@@ -25,6 +21,6 @@ module AskAwesomely
     def align_vertically
       @state.vertical_alignment = true
     end
-    
+
   end
 end
