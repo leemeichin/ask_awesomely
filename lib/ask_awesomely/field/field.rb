@@ -26,7 +26,7 @@ module AskAwesomely
       field = AskAwesomely::Field.const_get(field_type)
       field.new(type, &block)
     rescue NameError
-        raise FieldTypeError, "This type of field does not exist, please use one of: #{VALID_FIELD_TYPES.join(", ")}"
+        raise FieldTypeError, "Field #{type} <#{field}> does not exist, please use one of: #{VALID_FIELD_TYPES.join(", ")}"
     end
 
     # Allow init with properties common to *all* fields
