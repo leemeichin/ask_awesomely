@@ -25,7 +25,7 @@ module AskAwesomely
       field_type = type.to_s.split('_').map(&:capitalize).join
       field = AskAwesomely::Field.const_get(field_type)
       field.new(type, &block)
-    rescue NameError
+    rescue NameError => e
         raise FieldTypeError, "Field #{type} <#{field}> does not exist, please use one of: #{VALID_FIELD_TYPES.join(", ")}"
     end
 
@@ -38,6 +38,10 @@ module AskAwesomely
 
     def ask(question)
       @state.question = question
+    end
+
+    def description(text)
+      @state.description = text
     end
 
     def required
