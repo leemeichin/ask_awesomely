@@ -16,18 +16,18 @@ module AskAwesomely
     end
 
     def left_side(label)
-      @state.label ||= Hash.new(nil)
-      @state.label[:left_side] = label
+      @state.labels ||= Hash.new(nil)
+      @state.labels[:left] = label
     end
 
     def middle(label)
-      @state.label ||= Hash.new(nil)
-      @state.label[:center] = label
+      @state.labels ||= Hash.new(nil)
+      @state.labels[:center] = label
     end
 
     def right_side(label)
-      @state.label ||= Hash.new(nil)
-      @state.label[:right] = label
+      @state.labels ||= Hash.new(nil)
+      @state.labels[:right] = label
     end
 
   end
