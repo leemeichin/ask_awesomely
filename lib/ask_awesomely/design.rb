@@ -7,10 +7,10 @@ module AskAwesomely
       Arvo
       Bangers
       Cabin
-      Cabin Condensed
+      Cabin\ Condensed
       Courier
-      Crete Round
-      Dancing Script
+      Crete\ Round
+      Dancing\ Script
       Exo
       Georgia
       Handlee
@@ -21,15 +21,15 @@ module AskAwesomely
       McLaren
       Monsterrat
       Nixie
-      Old Standard TT
-      Open Sans
+      Old\ Standard\ TT
+      Open\ Sans
       Oswald
       Playfair
       Quicksand
       Raleway
       Signika
       Sniglet
-      Source Sans Pro
+      Source\ Sans\ Pro
       Vollkorn
     ]
 
