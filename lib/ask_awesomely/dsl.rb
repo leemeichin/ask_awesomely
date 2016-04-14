@@ -45,6 +45,10 @@ module AskAwesomely
         _state.design_id = id || ->(_) { Design.new(&block).id }
       end
 
+      def no_branding
+         _state.branding = false
+      end
+
       def send_responses_to(url)
         unless url =~ /\A#{URI::regexp(['http', 'https'])}\z/
           raise AskAwesomely::InvalidUrlError, "you must use a valid URL for webhooks, e.g https://example.com/webhook"
