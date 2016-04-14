@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.typeform.io/v0.4/forms
+    body:
+      encoding: UTF-8
+      string: '{"title":"My Example Form","fields":[{"type":"yes_no","question":"Shall
+        we continue?","ref":"shall_continue?"},{"type":"statement","question":"Thanks!"},{"type":"statement","question":"Wut?","ref":"shall_not_continue"}],"tags":["example","logic-jumps"],"jumps":[{"to":"shall_not_continue","from":"shall_continue?","if_answer":false}]}'
+    headers:
+      User-Agent:
+      - leemachin/ask_awesomely; (v0.2.5)
+      X-API-TOKEN:
+      - "<API-KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 14 Apr 2016 17:36:22 GMT
+      Server:
+      - openresty/1.7.4.1
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '102'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"error":"validation_error","field":"jumps","description":"Additional
+        property jumps is not allowed"}
+
+'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.typeform.io/v0.4/forms
+  recorded_at: Thu, 14 Apr 2016 17:36:22 GMT
+recorded_with: VCR 2.9.3

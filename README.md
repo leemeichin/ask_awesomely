@@ -405,7 +405,7 @@ end
 Notice how the two `yes_no` fields have a reference. These are what we use to define the logic jump:
 
 ```ruby
-jump from: :is_over_18, to: :is_really_over_18?, if_answer: true
+jump from: :is_over_18, to: :is_really_over_18?, if: true
 
 ```
 

@@ -9,9 +9,9 @@ module AskAwesomely
       @state = OpenStruct.new(
         to: args[:to],
         from: args[:from],
-        if_answer: args[:if_answer]
+	if: args.key?(:if) ? args[:if] : args[:if_answer]
       )
     end
-    
+
   end
 end

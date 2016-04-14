@@ -4,7 +4,7 @@
     {
       "type": "yes_no",
       "question": "Shall we continue?",
-      "ref": "shall_continue?"
+      "ref": "shall_continue"
     },
     {
       "type": "statement",
@@ -23,8 +23,8 @@
   "jumps": [
     {
       "to": "shall_not_continue",
-      "from": "shall_continue?",
-      "if_answer": false
+      "from": "shall_continue",
+      "if": false
     }
   ]
 }

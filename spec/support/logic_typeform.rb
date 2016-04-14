@@ -5,11 +5,11 @@ class LogicTypeform
 
   tags "example", "logic-jumps"
 
-  jump from: :shall_continue?, to: :shall_not_continue, if_answer: false
+  jump from: :shall_continue, to: :shall_not_continue, if: false
 
   field :yes_no do
     ask "Shall we continue?"
-    ref :shall_continue?
+    ref :shall_continue
   end
 
   field :statement do
@@ -32,5 +32,5 @@ class LogicTypeform
 
     skip unless: proc { false }
   end
-  
+
 end
