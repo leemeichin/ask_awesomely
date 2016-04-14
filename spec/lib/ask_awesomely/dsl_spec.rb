@@ -50,6 +50,18 @@ describe AskAwesomely::DSL, "The Typeform builder DSL" do
     end
   end
 
+  describe "building a Typeform with multiple choices and context" do
+    subject { MultipleChoiceTypeform }
+
+    let(:json) { fixture("multiple_choice_form") }
+
+    it "has a valid JSON representation when built" do
+      form = subject.build("two")
+      generated_json = JSON.pretty_generate(JSON.parse(form.to_json))
+      generated_json.must_equal(json)
+    end
+  end
+
   describe "building a Typeform and using pictures" do
     subject { PictureTypeform }
 

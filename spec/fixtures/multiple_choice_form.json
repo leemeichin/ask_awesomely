@@ -1,0 +1,25 @@
+{
+  "title": "My Example Form",
+  "fields": [
+    {
+      "type": "multiple_choice",
+      "question": "What do you think?",
+      "choices": [
+        {
+          "label": "One"
+        },
+        {
+          "label": "two"
+        },
+        {
+          "label": "Three"
+        }
+      ],
+      "required": true
+    }
+  ],
+  "tags": [
+    "example",
+    "multiple-choice"
+  ]
+}
