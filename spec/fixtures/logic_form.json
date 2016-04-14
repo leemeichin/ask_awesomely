@@ -20,7 +20,7 @@
     "example",
     "logic-jumps"
   ],
-  "jumps": [
+  "logic_jumps": [
     {
       "to": "shall_not_continue",
       "from": "shall_continue",

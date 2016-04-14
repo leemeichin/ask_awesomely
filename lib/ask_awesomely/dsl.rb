@@ -37,8 +37,8 @@ module AskAwesomely
       end
 
       def jump(conditions)
-        _state.jumps ||= []
-        _state.jumps << LogicJump.new(conditions)
+        _state.logic_jumps ||= []
+        _state.logic_jumps << LogicJump.new(conditions)
       end
 
       def design(id = nil, &block)
