@@ -7,10 +7,10 @@ module AskAwesomely
 
     def initialize(label:, picture: nil)
       @state = OpenStruct.new(
-        label: label.to_s,
+        label: label,
       )
 
-      if picture 
+      if picture
         @state.image_id = proc { Picture.new(picture).typeform_id }
       end
     end
