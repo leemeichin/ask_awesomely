@@ -1,36 +1,36 @@
 module AskAwesomely
   class Design
 
-    VALID_FONTS = %w[
-      Acme
-      Arial
-      Arvo
-      Bangers
-      Cabin
-      Cabin Condensed
-      Courier
-      Crete Round
-      Dancing Script
-      Exo
-      Georgia
-      Handlee
-      Karla
-      Lato
-      Lobster
-      Lora
-      McLaren
-      Monsterrat
-      Nixie
-      Old Standard TT
-      Open Sans
-      Oswald
-      Playfair
-      Quicksand
-      Raleway
-      Signika
-      Sniglet
-      Source Sans Pro
-      Vollkorn
+    VALID_FONTS = [
+      "Acme",
+      "Arial",
+      "Arvo",
+      "Bangers",
+      "Cabin",
+      "Cabin Condensed",
+      "Courier",
+      "Crete Round",
+      "Dancing Script",
+      "Exo",
+      "Georgia",
+      "Handlee",
+      "Karla",
+      "Lato",
+      "Lobster",
+      "Lora",
+      "McLaren",
+      "Monsterrat",
+      "Nixie",
+      "Old Standard TT",
+      "Open Sans",
+      "Oswald",
+      "Playfair",
+      "Quicksand",
+      "Raleway",
+      "Signika",
+      "Sniglet",
+      "Source Sans Pro",
+      "Vollkorn"
     ]
 
     def initialize(&block)
