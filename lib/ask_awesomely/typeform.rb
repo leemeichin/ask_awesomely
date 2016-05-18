@@ -24,7 +24,7 @@ module AskAwesomely
     end
 
     def embed_as(type, options = {})
-      Embeddable.new(type, options).render(self, options)
+      Embeddable.new(type).render(self, options)
     end
 
     def update_with_api_response(response)
