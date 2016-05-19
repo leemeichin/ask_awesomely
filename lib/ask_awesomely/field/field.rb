@@ -39,6 +39,8 @@ module AskAwesomely
     def ask(question)
       @state.question = question
     end
+    alias_method :say, :ask
+
 
     def description(text)
       @state.description = text

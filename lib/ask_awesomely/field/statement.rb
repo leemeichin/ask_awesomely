@@ -5,10 +5,6 @@ module AskAwesomely
       super
     end
 
-    def say(statement)
-      @state.question = statement
-    end
-    
     def show_quotation_marks
       @state.has_marks = true
     end
@@ -16,6 +12,6 @@ module AskAwesomely
     def button_text(text)
       @state.button_text = text
     end
-    
+
   end
 end
