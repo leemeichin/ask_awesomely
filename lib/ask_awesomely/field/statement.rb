@@ -5,8 +5,8 @@ module AskAwesomely
       super
     end
 
-    def show_quotation_marks
-      @state.has_marks = true
+    def no_quotation_marks
+      @state.hide_marks = true
     end
 
     def button_text(text)
