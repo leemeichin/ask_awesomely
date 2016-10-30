@@ -18,8 +18,8 @@ module AskAwesomely
       @state.add_other_choice = true
     end
 
-    def hide_labels
-      @state.labels = false
+    def show_labels
+      @state.show_labels = true
     end
 
     def align_vertically
