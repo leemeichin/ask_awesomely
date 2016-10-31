@@ -1,10 +1,25 @@
 module AskAwesomely
   class Field::Rating < Field::Field
 
-    POSSIBLE_STEPS = 3..10
+    POSSIBLE_STEPS = 1..10
     SHAPES = %i(
-      stars
-      thumbs_up
+      star
+      heart
+      user
+      up
+      crown
+      cat
+      dog
+      circle
+      flag
+      droplet
+      tick
+      lightbulb
+      trophy
+      cloud
+      thunderbolt
+      pencil
+      skull
     )
     
     def initialize(*)
