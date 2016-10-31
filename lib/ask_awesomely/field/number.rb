@@ -6,11 +6,11 @@ module AskAwesomely
     end
 
     def min(min)
-      @state.min = min
+      @state.min_value = min
     end
 
     def max(max)
-      @state.max = max
+      @state.max_value = max
     end
 
     def between(range)
