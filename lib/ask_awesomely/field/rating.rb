@@ -2,25 +2,25 @@ module AskAwesomely
   class Field::Rating < Field::Field
 
     POSSIBLE_STEPS = 1..10
-    SHAPES = %i(
-      star
-      heart
-      user
-      up
-      crown
-      cat
-      dog
-      circle
-      flag
-      droplet
-      tick
-      lightbulb
-      trophy
-      cloud
-      thunderbolt
-      pencil
-      skull
-    )
+    VALID_SHAPES = [
+      "star",
+      "heart",
+      "user",
+      "up",
+      "crown",
+      "cat",
+      "dog",
+      "circle",
+      "flag",
+      "droplet",
+      "tick",
+      "lightbulb",
+      "trophy",
+      "cloud",
+      "thunderbolt",
+      "pencil",
+      "skull"
+    ]
     
     def initialize(*)
       super
@@ -35,8 +35,8 @@ module AskAwesomely
     end
 
     def shape(shape)
-      unless SHAPES.include?(shape)
-        raise ArgumentError, "shape must be one of: #{SHAPES.join(", ")}"
+      unless VALID_SHAPES.include?(shape)
+        raise ArgumentError, "shape must be one of: #{VALID_SHAPES.join(", ")}"
       end
 
       @state.shape = shape

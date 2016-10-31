@@ -296,7 +296,7 @@ field :rating do
   ask "How much did you enjoy Jonny Wiseau's seminal hit, The Room?"
 
   steps 10
-  shape :up
+  shape "skull"
 end
 
 ```
