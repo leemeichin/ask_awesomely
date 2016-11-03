@@ -27,7 +27,11 @@ describe AskAwesomely::ApiClient, 'interface to Typeform I/O' do
         typeform.title.must_equal('My Example Form')
         typeform.public_url.must_equal('https://forms.typeform.io/to/uc5ag9dzpW')
         typeform.private_url.must_equal('https://api.typeform.io/v0.4/forms/uc5ag9dzpW')
-        typeform.fields.must_equal(267_430 => 'This is a test!', 267_431 => 'What do you think?')
+        typeform.fields.must_equal([
+          {"id" => 267430, "type" => "statement", "question" => "This is a test!"},
+          {"id" => 267431, "type" => "short_text", "question" => "What do you think?", "required" => true, "tags" => ["opinion"]
+          }
+        ])
       end
     end
   end

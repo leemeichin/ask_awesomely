@@ -39,7 +39,7 @@ describe AskAwesomely::Field::Field, "A generic Field" do
 
       field.state.tags.must_equal(["a", "b", "c"])
     end
-    
+
   end
-  
+
 end

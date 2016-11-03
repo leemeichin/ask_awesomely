@@ -4,7 +4,7 @@ module AskAwesomely
 
     def initialize(structure)
       @structure = structure
-      @fields = {}
+      @fields = []
     end
 
     def title
@@ -30,9 +30,7 @@ module AskAwesomely
     def update_with_api_response(response)
       @links = response['_links']
       @id = response['id']
-      response['fields'].each do |question|
-        @fields[question['id']] = question['question']
-      end
+      @fields = response['fields']
     end
 
     def to_json
