@@ -133,16 +133,16 @@ end
 You will want to create a class that represents a specific form to be built:
 
 ```ruby
-class MyNewTypeform
+class MyNewTypeform < AskAwesomely::Typeform
 
-  include AskAwesomely::DSL
+  context :user
 
   title "My New Typeform"
 
   tags "awesome", "hehe"
 
   field :statement do
-    say ->(user) { "Hello, #{user.name}!" }
+    "Hello, #{user.name}!"
   end
 
   field :multiple_choice do
@@ -152,9 +152,10 @@ class MyNewTypeform
     choice "Javascript"
     choice "COBOL"
 
+    choice user.favourite_language
+
     can_specify_other
   end
-
 end
 ```
 
@@ -162,7 +163,7 @@ After that, it's simply a matter of calling `build` on the class:
 
 ```ruby
 user = OpenStruct.new(name: "Rubyist")
-typeform = MyNewTypeform.build(user)
+typeform = MyNewTypeform.save(user)
 ```
 
 Check out [Typeform I/O](https://typeform.io) for detailed information about the API, and how to get your API key.
@@ -420,8 +421,9 @@ If you need to change the structure of a Typeform based on your own data and not
 Consider a form where you ask for the user's email address:
 
 ```ruby
-class EmailTypeform
-  include AskAwesomely::DSL
+class EmailTypeform < AskAwesomely::Typeform
+
+  context :user
 
   field :email do
     ask -> (user) { "Hey #{user.name}, what is your email address?" }
@@ -435,17 +437,18 @@ end
 What if you already have the user's email? It makes no sense to repeatedly ask for it, does it? You can tell *Ask Awesomely* to not include this field if a certain condition is met; in this case the user having an email address already.
 
 ```ruby
-class EmailTypeform
-  include AskAwesomely::DSL
+class EmailTypeform < AskAwesomely::Typeform
+
+  context :user
 
   field :email do
-    ask -> (user) { "Hey #{user.name}, what is your email address?" }
+    ask "Hey #{user.name}, what is your email address?"
     required
 
-    skip if: -> (user) { !user.email.nil? }
+    skip if: -> { !user.email.nil? }
 
     # alternatively
-    skip unless: -> (user) { user.email.nil? }
+    skip unless: -> { user.email.nil? }
   end
 
   # ... more fields
@@ -478,19 +481,20 @@ Building a form full of hard-coded data is all well and good, but it doesn't off
 Lets create the basic form, with a title and a single question:
 
 ```ruby
-class UserTypeform
-  include AskAwesomely::DSL
+class UserTypeform < AskAwesomely::Typeform
 
-  title -> (user) { "#{user.name}'s New Typeform" }
+  context :user
+
+  title "#{user.name}'s New Typeform"
 
   field :yes_no do
-    say -> (user) { "Is this your email address? #{user.email}" }
+    say "Is this your email address? #{user.email}"
     required
   end
 end
 ```
 
-Notice that we're now using a lambda for the title and question, instead of a hardcoded string. In this case, we're expecting an object that has a `name` and an `email`, so we can inject that data into the form.
+Notice that we're now referring to a `user` in the title and yes/no field; this is just an alias for `context` (defined with the `context` attribute) so that you can refer to your data in a meaningful way. In this case, we're expecting our context to be a `user`, which is an object that has a `name` and an `email`, so we can inject that data into the form.
 
 The next step is to build the form with such an object. For example, in Rails:
 
@@ -574,7 +578,7 @@ typeform.embed_as(:fullscreen)
 Typeform I/O uses webhooks to send you the responses to your Typeforms. You can configure the URL by telling it where to send responses to, like this:
 
 ```ruby
-class UserTypeform
+class UserTypeform < AskAwesomely::Typeform
 
   # all the fields ...
 
