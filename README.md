@@ -586,6 +586,75 @@ end
 
 Check the documentation on [results and webhooks](http://docs.typeform.io/docs/results-introduction) to find out more about how this works, what happens when a webhook submission request fails, and how you can deduplicate your submissions.
 
+## Using Rails Framework
+
+To integrate the previous steps into Rails:
+
+add the gem to Gemfile
+```ruby
+gem 'ask_awesomely'
+```
+
+install the gem
+```shell
+bundle install
+```
+
+inside config\application.rb
+within the module app_name block add
+```ruby
+    config.autoload_paths += %W(#{config.root}/app/typeforms)
+    AskAwesomely.configure do |config|
+      config.typeform_api_key = ENV["YOUR_TYPEFORM_IO_API_KEY"]
+    end
+```
+
+notice that we'll need to add YOUR_TYPEFORM_IO_API_KEY as an environment variable
+ie: in linux terminal
+```shell
+echo 'export YOUR_TYPEFORM_IO_API_KEY="the acquired api key"' >> ~/.profile && source ~/.profile
+```
+
+make a new directory in the apps folder and name it typeforms
+
+create the apps/typeforms/my_new_typeform.rb file and populate it with
+```ruby
+class MyNewTypeform
+
+  include AskAwesomely::DSL
+
+  title "My New Typeform"
+
+  tags "awesome", "hehe"
+
+  field :statement do
+    say ->(user) { "Hello, #{user.name}!" }
+  end
+
+  field :multiple_choice do
+    ask "What is your favourite language?"
+    choice "Ruby"
+    choice "Python"
+    choice "Javascript"
+    choice "COBOL"
+
+    can_specify_other
+  end
+
+end
+```
+
+in the controller action add the following
+```ruby
+  user = OpenStruct.new(name: "Rubyist")
+  @typeform = MyNewTypeform.build(user)
+```
+
+in the view ie: new.html.erb
+```ruby
+<%= render inline: @typeform.embed_as(:widget, button_text: "Launch me!") %>
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
